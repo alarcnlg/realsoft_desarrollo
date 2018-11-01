@@ -17,5 +17,21 @@ namespace SAP
         {
             InitializeComponent();
         }
+
+        private void FrmLogin_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void FrmLogin_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == '\r') {
+                ModuloGeneral.UsuarioActivo = new BaseDeDatos.Usuario() { Id = 1,Nombre="Admin",Apellidos="Istrador", NombreUsuario = "admin",Password="123", Tipo = 'A' };
+                ModuloGeneral.FrmLogin = this;
+                FrmMDI frm = new FrmMDI();
+                frm.Show();
+                Visible = false;
+            }
+        }
     }
 }

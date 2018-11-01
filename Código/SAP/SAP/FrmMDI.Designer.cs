@@ -63,6 +63,7 @@
             this.TsmUsuarios.Name = "TsmUsuarios";
             this.TsmUsuarios.Size = new System.Drawing.Size(180, 22);
             this.TsmUsuarios.Text = "Usuarios";
+            this.TsmUsuarios.Click += new System.EventHandler(this.TsmUsuarios_Click);
             // 
             // TsmBaseDeDatos
             // 
@@ -101,6 +102,8 @@
             this.MainMenuStrip = this.MnuMain;
             this.Name = "FrmMDI";
             this.Text = "SAP-Sistema de Administración de Papelería";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmMDI_FormClosed);
+            this.Load += new System.EventHandler(this.FrmMDI_Load);
             this.MnuMain.ResumeLayout(false);
             this.MnuMain.PerformLayout();
             this.ResumeLayout(false);

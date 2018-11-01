@@ -56,6 +56,7 @@
   <ItemGroup>
     <Compile Include="BaseDeDatos\Core\ConexionBaseDeDatos.cs" />
     <Compile Include="BaseDeDatos\Usuario.cs" />
+    <Compile Include="Clases\MetodosExtension.cs" />
     <Compile Include="FrmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -72,6 +73,15 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Pruebas\ClasePrueba.cs" />
+    <Compile Include="Ventanas\FrmListUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ventanas\FrmListUsuarios.Designer.cs">
+      <DependentUpon>FrmListUsuarios.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="FrmLogin.resx">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmMDI.resx">
       <DependentUpon>FrmMDI.cs</DependentUpon>
     </EmbeddedResource>
@@ -84,6 +94,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Ventanas\FrmListUsuarios.resx">
+      <DependentUpon>FrmListUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -99,9 +112,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Clases\" />
     <Folder Include="Data\" />
-    <Folder Include="Ventanas\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Desarrollo\DefinicionBaseDeDatos.sql" />
