@@ -14,9 +14,12 @@ namespace SAP
 {
     public partial class FrmMDI : Form
     {
+        public bool CerraAplicacion {get; set;}
+
         public FrmMDI()
         {
             InitializeComponent();
+            CerraAplicacion = true;
         }
 
         private void FrmMDI_Load(object sender, EventArgs e)
@@ -27,12 +30,20 @@ namespace SAP
 
         private void FrmMDI_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Application.Exit();
+            if (CerraAplicacion) {
+                Application.Exit();
+            }
         }
 
         private void TsmUsuarios_Click(object sender, EventArgs e)
         {
             this.CargarFormulario(new FrmListUsuarios());
         }
+
+        private void TsmBaseDeDatos_Click(object sender, EventArgs e)
+        {
+            this.CargarFormulario(new FrmConfiguracionBaseDeDatos());
+        }
+
     }
 }

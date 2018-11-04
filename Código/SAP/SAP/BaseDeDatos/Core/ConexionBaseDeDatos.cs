@@ -10,10 +10,11 @@ namespace SAP.BaseDeDatos.Core
     class ConexionBaseDeDatos
     {
         private static MySqlConnection _instancia;
-
+        
         public static MySqlConnection ConseguirConexion() {
             if (_instancia == null) {
-                _instancia = new MySqlConnection(@"Server=localhost;Database=DAP;Uid=root;Pwd=1234;ConvertZeroDateTime=True;");
+                //_instancia = new MySqlConnection(@"Server=localhost;Database=DAP;Uid=root;Pwd=1234;ConvertZeroDateTime=True;");
+                _instancia = new MySqlConnection(ModuloGeneral.ConnectionString);
             }
             return _instancia;
         }

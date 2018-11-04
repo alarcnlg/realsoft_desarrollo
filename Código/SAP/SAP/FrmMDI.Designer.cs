@@ -70,6 +70,7 @@
             this.TsmBaseDeDatos.Name = "TsmBaseDeDatos";
             this.TsmBaseDeDatos.Size = new System.Drawing.Size(180, 22);
             this.TsmBaseDeDatos.Text = "Base de Datos";
+            this.TsmBaseDeDatos.Click += new System.EventHandler(this.TsmBaseDeDatos_Click);
             // 
             // TsmUsuario
             // 
@@ -83,13 +84,13 @@
             // TsmCerrarSesion
             // 
             this.TsmCerrarSesion.Name = "TsmCerrarSesion";
-            this.TsmCerrarSesion.Size = new System.Drawing.Size(180, 22);
+            this.TsmCerrarSesion.Size = new System.Drawing.Size(143, 22);
             this.TsmCerrarSesion.Text = "Cerrar Sesión";
             // 
             // TsmSalir
             // 
             this.TsmSalir.Name = "TsmSalir";
-            this.TsmSalir.Size = new System.Drawing.Size(180, 22);
+            this.TsmSalir.Size = new System.Drawing.Size(143, 22);
             this.TsmSalir.Text = "Salir";
             // 
             // FrmMDI

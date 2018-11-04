@@ -4,10 +4,10 @@
 #	Versión: 20181101										  #
 ###############################################################
 
-DROP DATABASE IF EXISTS DAP;
-CREATE DATABASE DAP;
+DROP DATABASE IF EXISTS SAP;
+CREATE DATABASE SAP;
 
-USE DAP;
+USE SAP;
 
 DROP TABLE IF EXISTS usuarios;
 CREATE TABLE usuarios(

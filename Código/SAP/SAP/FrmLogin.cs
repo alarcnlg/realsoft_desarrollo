@@ -1,4 +1,6 @@
-﻿using SAP.Pruebas;
+﻿using SAP.Clases;
+using SAP.Pruebas;
+using SAP.Ventanas;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -20,7 +22,25 @@ namespace SAP
 
         private void FrmLogin_Load(object sender, EventArgs e)
         {
+            ArchivoConfiguracion archivoConfiguracion = new ArchivoConfiguracion();
 
+            if (!archivoConfiguracion.EsExistente())
+            {
+                Visible = false;
+                FrmConfiguracionBaseDeDatos frm = new FrmConfiguracionBaseDeDatos(true);
+                if (frm.ShowDialog() == DialogResult.OK)
+                {
+                    Visible = true;
+                }
+                else
+                {
+                    Application.Exit();
+                }
+            }
+            else {
+                archivoConfiguracion.CargarDatos();
+                ModuloGeneral.ConnectionString = archivoConfiguracion.CrearConnectionString();
+            }
         }
 
         private void FrmLogin_KeyPress(object sender, KeyPressEventArgs e)
@@ -30,6 +50,8 @@ namespace SAP
                 ModuloGeneral.FrmLogin = this;
                 FrmMDI frm = new FrmMDI();
                 frm.Show();
+
+                ModuloGeneral.FrmMDI = frm;
                 Visible = false;
             }
         }

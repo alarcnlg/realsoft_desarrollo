@@ -11,6 +11,9 @@ namespace SAP
     class ModuloGeneral
     {
         public static Usuario UsuarioActivo;
-        public static Form FrmLogin;
+        public static FrmLogin FrmLogin;
+        public static FrmMDI FrmMDI;
+        public static string ConnectionString;
+
     }
 }
