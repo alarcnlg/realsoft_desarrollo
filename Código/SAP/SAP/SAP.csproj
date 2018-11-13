@@ -55,6 +55,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseDeDatos\Core\ConexionBaseDeDatos.cs" />
+    <Compile Include="BaseDeDatos\Core\ConsultaBuilder.cs" />
     <Compile Include="BaseDeDatos\Usuario.cs" />
     <Compile Include="Clases\ArchivoConfiguracion.cs" />
     <Compile Include="Clases\MetodosExtension.cs" />
@@ -86,6 +87,12 @@
     <Compile Include="Ventanas\FrmListUsuarios.Designer.cs">
       <DependentUpon>FrmListUsuarios.cs</DependentUpon>
     </Compile>
+    <Compile Include="Ventanas\FrmUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ventanas\FrmUsuario.Designer.cs">
+      <DependentUpon>FrmUsuario.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </EmbeddedResource>
@@ -106,6 +113,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Ventanas\FrmListUsuarios.resx">
       <DependentUpon>FrmListUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ventanas\FrmUsuario.resx">
+      <DependentUpon>FrmUsuario.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

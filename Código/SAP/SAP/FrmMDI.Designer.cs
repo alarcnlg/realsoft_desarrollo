@@ -61,14 +61,14 @@
             // TsmUsuarios
             // 
             this.TsmUsuarios.Name = "TsmUsuarios";
-            this.TsmUsuarios.Size = new System.Drawing.Size(180, 22);
+            this.TsmUsuarios.Size = new System.Drawing.Size(147, 22);
             this.TsmUsuarios.Text = "Usuarios";
             this.TsmUsuarios.Click += new System.EventHandler(this.TsmUsuarios_Click);
             // 
             // TsmBaseDeDatos
             // 
             this.TsmBaseDeDatos.Name = "TsmBaseDeDatos";
-            this.TsmBaseDeDatos.Size = new System.Drawing.Size(180, 22);
+            this.TsmBaseDeDatos.Size = new System.Drawing.Size(147, 22);
             this.TsmBaseDeDatos.Text = "Base de Datos";
             this.TsmBaseDeDatos.Click += new System.EventHandler(this.TsmBaseDeDatos_Click);
             // 
@@ -86,6 +86,7 @@
             this.TsmCerrarSesion.Name = "TsmCerrarSesion";
             this.TsmCerrarSesion.Size = new System.Drawing.Size(143, 22);
             this.TsmCerrarSesion.Text = "Cerrar Sesión";
+            this.TsmCerrarSesion.Click += new System.EventHandler(this.TsmCerrarSesion_Click);
             // 
             // TsmSalir
             // 
@@ -103,6 +104,7 @@
             this.MainMenuStrip = this.MnuMain;
             this.Name = "FrmMDI";
             this.Text = "SAP-Sistema de Administración de Papelería";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmMDI_FormClosed);
             this.Load += new System.EventHandler(this.FrmMDI_Load);
             this.MnuMain.ResumeLayout(false);

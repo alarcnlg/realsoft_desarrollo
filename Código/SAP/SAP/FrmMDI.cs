@@ -45,5 +45,14 @@ namespace SAP
             this.CargarFormulario(new FrmConfiguracionBaseDeDatos());
         }
 
+        private void TsmCerrarSesion_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("¿Está seguro de cerrar Sesión?", "Cerrar sesión", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation) == DialogResult.OK)
+            {
+                ModuloGeneral.FrmLogin.Visible = true;
+                CerraAplicacion = false;
+                Close();
+            }
+        }
     }
 }

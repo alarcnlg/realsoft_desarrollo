@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Dapper;
-using Dapper.Contrib.Extensions;
 
 namespace SAP.BaseDeDatos
 {
@@ -21,58 +20,106 @@ namespace SAP.BaseDeDatos
         public string Password { get; set; }
         public char Tipo { get; set; }
 
-        [Write(false)]
-        [Computed()]
-        public string NombreTipo {
-            get {
-                return Tipo=='A'?"Administrador":"Cajero";
-            }
-        }
-
         public static bool Ingresar(ref Usuario usuario) {
+            try
+            {
+                MySqlConnection conn = ConexionBaseDeDatos.ConseguirConexion();
+                ConsultaBuilder consultaBuilder = new ConsultaBuilder("usuarios");
+
+                consultaBuilder.AgregarCriterio("NOMBREUSUARIO=@NOMBREUSUARIO");
+                consultaBuilder.AgregarCriterio("PASSWORD=@PASSWORD");
+
+                usuario = conn.Query<Usuario>(consultaBuilder.ToString(),
+                    new { NOMBREUSUARIO = usuario.NombreUsuario, PASSWORD = usuario.Password }).FirstOrDefault();
+                if (usuario == null)
+                {
+                    ConexionBaseDeDatos.Error = "Nombre de Usuario o Contraseña incorrecto";
+                    return false;
+                }
+            }
+            catch(Exception ex)
+            {
+                ConexionBaseDeDatos.Error = ex.Message;
+                return false;
+            }
             return true;
         }
 
         public static bool Guardar(ref Usuario usuario)
         {
+            try
+            {
+                MySqlConnection conn = ConexionBaseDeDatos.ConseguirConexion(); conn = ConexionBaseDeDatos.ConseguirConexion();
+                if (usuario.Id == 0)
+                {
+                    usuario.Id = conn.Insert(usuario);
+                }
+                else
+                {
+                    conn.Update(usuario);
+                }
+            }
+            catch (Exception ex)
+            {
+                ConexionBaseDeDatos.Error = ex.Message;
+                return false;
+            }
             return true;
         }
 
-        public static bool Eliminar(ref Usuario usuario)
+        public static bool Eliminar(long id)
         {
+            try
+            {
+                MySqlConnection conn = ConexionBaseDeDatos.ConseguirConexion();
+                conn.Delete(new Usuario { Id = id });
+            }
+            catch (Exception ex)
+            {
+                ConexionBaseDeDatos.Error = ex.Message;
+                return false;
+            }
             return true;
         }
 
         public static bool Consultar(ref Usuario usuario)
         {
+           
+            try
+            {
+                MySqlConnection conn = ConexionBaseDeDatos.ConseguirConexion();
+                usuario = conn.Get<Usuario>(usuario.Id);
+            }
+            catch (Exception ex)
+            {
+                ConexionBaseDeDatos.Error = ex.Message;
+                return false;
+            }
             return true;
         }
 
         public static bool ConsultarListado(ref List<Usuario> usuarios,string campoCriterio = "", string datoCriterio = "")
-        {
-            MySqlConnection conn = ConexionBaseDeDatos.ConseguirConexion();
+        {   
             try
             {
+                MySqlConnection conn = ConexionBaseDeDatos.ConseguirConexion();
+                ConsultaBuilder consultaBuilder = new ConsultaBuilder("usuarios");
+                consultaBuilder.AgregarOrderBy("NOMBRE");
 
-                conn.Open();
+                DynamicParameters parametros = null;
+
                 if (campoCriterio.Length > 0 && datoCriterio.Length > 0)
                 {
-                    DynamicParameters parametros = new DynamicParameters();
+                    parametros = new DynamicParameters();
                     parametros.Add("@DATO", $"%{datoCriterio}%", System.Data.DbType.String);
-                    usuarios = conn.Query<Usuario>($"SELECT * FROM usuarios WHERE {campoCriterio} LIKE @DATO ORDER BY NOMBRE",parametros).ToList();
+                    consultaBuilder.AgregarCriterio($"{campoCriterio} LIKE @DATO");
                 }
-                else {
-                    usuarios = conn.Query<Usuario>("SELECT * FROM usuarios ORDER BY NOMBRE").ToList();
-                }
-               
+
+                usuarios = conn.Query<Usuario>(consultaBuilder.ToString(), parametros).ToList();
             }
             catch
             {
                 return false;
-            }
-            finally
-            {
-                conn.Close();
             }
             return true;
         }

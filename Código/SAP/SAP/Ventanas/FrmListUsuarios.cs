@@ -8,76 +8,72 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using SAP.Clases;
 
 namespace SAP.Ventanas
 {
     public partial class FrmListUsuarios : Form
     {
-        private List<Usuario> _datos;
+        private List<Usuario> _modelo;
 
         public FrmListUsuarios()
         {
             InitializeComponent();
-            _datos = new List<Usuario>();
+            StartPosition = FormStartPosition.CenterParent;
+
+            _modelo = new List<Usuario>();
         }
 
         private void FrmListUsuarios_Load(object sender, EventArgs e)
         {
-            DtgvListado.DataSource = _datos;
-            FormatearDataGridView();
-            CargarDataSourceComboBoxBusqueda();
+            CmbCampos.AgregarItem("Nombre", "Nombre");
+            CmbCampos.AgregarItem("Apellidos", "Apellidos");
+            CmbCampos.AgregarItem("Nombre de Usuario", "NombreUsuario");
+
+            _inicializarInterfaz();
 
             _consultar();
         }
 
         private void _consultar() {
-            if (!Usuario.ConsultarListado(ref _datos, CmbCampos.SelectedValue.ToString(), TxtBuscar.Text)) {
+            if (!Usuario.ConsultarListado(ref _modelo, CmbCampos.SelectedValue.ToString(), TxtBuscar.Text)) {
                 MessageBox.Show("Error al consultar Usuarios", "Error", MessageBoxButtons.OK,MessageBoxIcon.Error);
             }
-            DtgvListado.DataSource = _datos;
+            _llenaDatos();
 
         }
 
-        private void CargarDataSourceComboBoxBusqueda()
+        private void _inicializarInterfaz()
         {
-            DataTable dt = new DataTable();
-            dt.Columns.Add("NOMBRE", typeof(string));
-            dt.Columns.Add("CLAVE", typeof(string));
-
-            string[] nombres = {"Nombre","Apellidos","Nombre de Usuario"};
-            string[] claves = { "Nombre", "Apellidos", "NombreUsuario" };
-
-            DataRow row = null;
-            for (int i = 0; i < nombres.Length; i++) {
-                row = dt.NewRow();
-                row["NOMBRE"] = nombres[i];
-                row["CLAVE"] = claves[i];
-                dt.Rows.Add(row);
-            }
-
-            CmbCampos.DataSource = dt;
-            CmbCampos.DisplayMember = "NOMBRE";
-            CmbCampos.ValueMember = "CLAVE";
-        }
-
-        private void FormatearDataGridView() {
             DtgvListado.ReadOnly = true;
             DtgvListado.RowHeadersVisible = false;
             DtgvListado.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             DtgvListado.AllowUserToResizeRows = false;
+            DtgvListado.AllowUserToDeleteRows = false;
+            DtgvListado.AllowUserToAddRows = false;
+            DtgvListado.AutoGenerateColumns = false;
 
-            DtgvListado.Columns[0].Visible = false;
-            DtgvListado.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            DtgvListado.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            DtgvListado.AgregarColumna("ID", "ID", typeof(int), visible: false);
+            DtgvListado.AgregarColumna("NOMBRE", "Nombre", typeof(string), autoSizeColumnMode : DataGridViewAutoSizeColumnMode.Fill);
+            DtgvListado.AgregarColumna("APELLIDOS", "Apellidos", typeof(string), autoSizeColumnMode: DataGridViewAutoSizeColumnMode.Fill);
+            DtgvListado.AgregarColumna("NOMBREUSUARIO", "Nombre de Usuario", typeof(string), autoSizeColumnMode: DataGridViewAutoSizeColumnMode.Fill);
+            DtgvListado.AgregarColumna("TIPO", "Tipo", typeof(string), autoSizeColumnMode: DataGridViewAutoSizeColumnMode.Fill);
 
-            DtgvListado.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            DtgvListado.Columns[3].HeaderText = "Usuario";
+        }
 
-            DtgvListado.Columns[4].Visible = false;
-            DtgvListado.Columns[5].Visible = false;
+        private void _llenaDatos()
+        {
+            DtgvListado.Rows.Clear();
 
-            DtgvListado.Columns[6].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            DtgvListado.Columns[6].HeaderText = "Tipo";
+            for (int i = 0; i < _modelo.Count; i++)
+            {
+                DtgvListado.AgregarCelda(_modelo[i].Id);
+                DtgvListado.AgregarCelda(_modelo[i].Nombre);
+                DtgvListado.AgregarCelda(_modelo[i].Apellidos);
+                DtgvListado.AgregarCelda(_modelo[i].NombreUsuario);
+                DtgvListado.AgregarCelda(_modelo[i].Tipo == 'A'? "Administrador":"Cajero");
+            }
+
         }
 
         private void TxtBuscar_KeyPress(object sender, KeyPressEventArgs e)
@@ -90,6 +86,40 @@ namespace SAP.Ventanas
         private void BtnBuscar_Click(object sender, EventArgs e)
         {
             _consultar();
+        }
+
+        private void BtnEliminar_Click(object sender, EventArgs e)
+        {
+            if (DtgvListado.SelectedRows.Count != 1) return;
+            if (MessageBox.Show("¿Está seguro de Eliminar este Usuario?", "Eliminar", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation) == DialogResult.OK)
+            {
+                if (!Usuario.Eliminar(_modelo[DtgvListado.SelectedRows[0].Index].Id)) {
+                    MessageBox.Show("Error al eliminar Usuario", "Eliminar", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                MessageBox.Show("Usuario eliminado correctamente", "Eliminar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                _consultar();
+            }
+         
+        }
+
+        private void BtnEditar_Click(object sender, EventArgs e)
+        {
+            if (DtgvListado.SelectedRows.Count != 1) return;
+            FrmUsuario frm = new FrmUsuario(_modelo[DtgvListado.SelectedRows[0].Index].Id);
+            if (frm.ShowDialog() == DialogResult.OK)
+            {
+                _consultar();
+            }
+        }
+
+        private void BtnNuevo_Click(object sender, EventArgs e)
+        {
+            FrmUsuario frm = new FrmUsuario();
+            if (frm.ShowDialog() == DialogResult.OK)
+            {
+                _consultar();
+            }
         }
     }
 }
