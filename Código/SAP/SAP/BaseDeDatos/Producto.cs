@@ -1,4 +1,5 @@
-﻿using Dapper.Contrib.Extensions;
+﻿using Dapper;
+using Dapper.Contrib.Extensions;
 using MySql.Data.MySqlClient;
 using SAP.BaseDeDatos.Core;
 using System;
@@ -6,57 +7,32 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Dapper;
 
 namespace SAP.BaseDeDatos
 {
-    [Table("usuarios")]
-    class Usuario
+    [Table("productos")]
+    class Producto
     {
         public long Id { get; set; }
+        public string CodigoBarras { get; set; }
         public string Nombre { get; set; }
-        public string Apellidos { get; set; }
-        public string NombreUsuario { get; set; }
-        public string Password { get; set; }
-        public char Tipo { get; set; }
+        public string Marca { get; set; }
+        public string Descripcion { get; set; }
+        public float Precio { get; set; }
+        public int Cantidad { get; set; }
 
-        public static bool Ingresar(ref Usuario usuario) {
-            try
-            {
-                MySqlConnection conn = ConexionBaseDeDatos.ConseguirConexion();
-                ConsultaBuilder consultaBuilder = new ConsultaBuilder("usuarios");
-
-                consultaBuilder.AgregarCriterio("NOMBREUSUARIO=@NOMBREUSUARIO");
-                consultaBuilder.AgregarCriterio("PASSWORD=@PASSWORD");
-
-                usuario = conn.Query<Usuario>(consultaBuilder.ToString(),
-                    new { NOMBREUSUARIO = usuario.NombreUsuario, PASSWORD = usuario.Password }).FirstOrDefault();
-                if (usuario == null)
-                {
-                    ConexionBaseDeDatos.Error = "Nombre de Usuario o Contraseña incorrecto";
-                    return false;
-                }
-            }
-            catch(Exception ex)
-            {
-                ConexionBaseDeDatos.Error = ex.Message;
-                return false;
-            }
-            return true;
-        }
-
-        public static bool Guardar(ref Usuario usuario)
+        public static bool Guardar(ref Producto producto)
         {
             try
             {
                 MySqlConnection conn = ConexionBaseDeDatos.ConseguirConexion(); 
-                if (usuario.Id == 0)
+                if (producto.Id == 0)
                 {
-                    usuario.Id = conn.Insert(usuario);
+                    producto.Id = conn.Insert(producto);
                 }
                 else
                 {
-                    conn.Update(usuario);
+                    conn.Update(producto);
                 }
             }
             catch (Exception ex)
@@ -72,7 +48,7 @@ namespace SAP.BaseDeDatos
             try
             {
                 MySqlConnection conn = ConexionBaseDeDatos.ConseguirConexion();
-                conn.Delete(new Usuario { Id = id });
+                conn.Execute("UPDATE productos SET ESTADO='E' WHERE ID=@ID", new { ID = id });
             }
             catch (Exception ex)
             {
@@ -82,13 +58,13 @@ namespace SAP.BaseDeDatos
             return true;
         }
 
-        public static bool Consultar(ref Usuario usuario)
+        public static bool Consultar(ref Producto producto)
         {
-           
+
             try
             {
                 MySqlConnection conn = ConexionBaseDeDatos.ConseguirConexion();
-                usuario = conn.Get<Usuario>(usuario.Id);
+                producto = conn.Get<Producto>(producto.Id);
             }
             catch (Exception ex)
             {
@@ -98,12 +74,13 @@ namespace SAP.BaseDeDatos
             return true;
         }
 
-        public static bool ConsultarListado(ref List<Usuario> usuarios,string campoCriterio = "", string datoCriterio = "")
-        {   
+        public static bool ConsultarListado(ref List<Producto> productos, string campoCriterio = "", string datoCriterio = "")
+        {
             try
             {
                 MySqlConnection conn = ConexionBaseDeDatos.ConseguirConexion();
-                ConsultaBuilder consultaBuilder = new ConsultaBuilder("usuarios");
+                ConsultaBuilder consultaBuilder = new ConsultaBuilder("compras");
+                consultaBuilder.AgregarCriterio("ESTADO='A'");
                 consultaBuilder.AgregarOrderBy("NOMBRE");
 
                 DynamicParameters parametros = null;
@@ -115,10 +92,33 @@ namespace SAP.BaseDeDatos
                     consultaBuilder.AgregarCriterio($"{campoCriterio} LIKE @DATO");
                 }
 
-                usuarios = conn.Query<Usuario>(consultaBuilder.ToString(), parametros).ToList();
+                productos = conn.Query<Producto>(consultaBuilder.ToString(), parametros).ToList();
             }
             catch
             {
+                return false;
+            }
+            return true;
+        }
+
+        public static bool AgregarInventario(long id, int cantidad)
+        {
+            try
+            {
+                MySqlConnection conn = ConexionBaseDeDatos.ConseguirConexion();
+                ConsultaBuilder consultaBuilder = new ConsultaBuilder("productos");
+                consultaBuilder.AgregarCampo("CANTIDAD");
+                consultaBuilder.AgregarCriterio("ID=@ID");
+
+                string sql = "UPDATE productos SET CANTIDAD=@CANTIDAD WHERE ID=@ID";
+
+                int cantidadActual = (int) conn.ExecuteScalar(consultaBuilder.ToString(), new { ID = id});
+
+                conn.Execute(sql, new { ID = id, CANTIDAD = cantidadActual + cantidad });
+            }
+            catch (Exception ex)
+            {
+                ConexionBaseDeDatos.Error = ex.Message;
                 return false;
             }
             return true;

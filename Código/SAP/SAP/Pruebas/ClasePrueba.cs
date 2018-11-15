@@ -17,20 +17,19 @@ namespace SAP.Pruebas
         public static bool Probar() {
             try
             {
+                List<Producto> prods = new List<Producto>();
+                Producto prod = new Producto();
+                prod.Nombre = "Lapiz";
+                prod.Descripcion = "Azul";
+                prod.CodigoBarras = "11111";
+                prod.Precio = 20f;
+                prod.Cantidad = 0;
 
-                //Ejemplo de Guardar un usuario
-                Usuario user = new Usuario() { Nombre = "Nombre", Apellidos = "A", NombreUsuario = "ejemp", Password = "12345678", Tipo = 'C' };
-                if (Usuario.Guardar(ref user))
-                {
-                    MessageBox.Show("Usuario guardado correctamente", "Guardar", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                else {
-                    MessageBox.Show("Error al guardar usuario", "Guardar", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                //******************************
+                Producto.Guardar(ref prod);
+                Producto.Consultar(ref prod);
+                Producto.ConsultarListado(ref prods);
+                Producto.Eliminar(prod.Id);
 
-                //List<Usuario> usuarios = new List<Usuario>();
-                //ConsultarMuchosRegistros(ref usuarios);
             }
             catch (Exception ex) {
                 MessageBox.Show(ex.Message);

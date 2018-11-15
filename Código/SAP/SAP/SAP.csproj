@@ -54,8 +54,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BaseDeDatos\Compra.cs" />
+    <Compile Include="BaseDeDatos\CompraDetalle.cs" />
     <Compile Include="BaseDeDatos\Core\ConexionBaseDeDatos.cs" />
     <Compile Include="BaseDeDatos\Core\ConsultaBuilder.cs" />
+    <Compile Include="BaseDeDatos\Producto.cs" />
     <Compile Include="BaseDeDatos\Usuario.cs" />
     <Compile Include="Clases\ArchivoConfiguracion.cs" />
     <Compile Include="Clases\MetodosExtension.cs" />

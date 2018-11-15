@@ -47,6 +47,9 @@ namespace SAP
                 archivoConfiguracion.CargarDatos();
                 ModuloGeneral.ConnectionString = archivoConfiguracion.CrearConnectionString();
             }
+
+
+            Pruebas.ClasePrueba.Probar();
         }
 
         private bool _validar() {
