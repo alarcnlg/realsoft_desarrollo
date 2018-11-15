@@ -138,6 +138,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MinimizeBox = false;
             this.Name = "FrmListUsuarios";
+            this.ShowIcon = false;
             this.Text = "Listado de Usuarios";
             this.Load += new System.EventHandler(this.FrmListUsuarios_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DtgvListado)).EndInit();

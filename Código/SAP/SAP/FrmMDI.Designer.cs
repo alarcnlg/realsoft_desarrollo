@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             this.MnuMain = new System.Windows.Forms.MenuStrip();
+            this.TsmProductos = new System.Windows.Forms.ToolStripMenuItem();
+            this.TsmCatalogoProductos = new System.Windows.Forms.ToolStripMenuItem();
+            this.TsmCompras = new System.Windows.Forms.ToolStripMenuItem();
             this.TsmConfiguracion = new System.Windows.Forms.ToolStripMenuItem();
             this.TsmUsuarios = new System.Windows.Forms.ToolStripMenuItem();
             this.TsmBaseDeDatos = new System.Windows.Forms.ToolStripMenuItem();
@@ -41,6 +44,7 @@
             // MnuMain
             // 
             this.MnuMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.TsmProductos,
             this.TsmConfiguracion,
             this.TsmUsuario});
             this.MnuMain.Location = new System.Drawing.Point(0, 0);
@@ -48,6 +52,28 @@
             this.MnuMain.Size = new System.Drawing.Size(800, 24);
             this.MnuMain.TabIndex = 1;
             this.MnuMain.Text = "menuStrip1";
+            // 
+            // TsmProductos
+            // 
+            this.TsmProductos.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.TsmCatalogoProductos,
+            this.TsmCompras});
+            this.TsmProductos.Name = "TsmProductos";
+            this.TsmProductos.Size = new System.Drawing.Size(73, 20);
+            this.TsmProductos.Text = "Productos";
+            // 
+            // TsmCatalogoProductos
+            // 
+            this.TsmCatalogoProductos.Name = "TsmCatalogoProductos";
+            this.TsmCatalogoProductos.Size = new System.Drawing.Size(180, 22);
+            this.TsmCatalogoProductos.Text = "Catálogo";
+            this.TsmCatalogoProductos.Click += new System.EventHandler(this.TsmCatalogoProductos_Click);
+            // 
+            // TsmCompras
+            // 
+            this.TsmCompras.Name = "TsmCompras";
+            this.TsmCompras.Size = new System.Drawing.Size(180, 22);
+            this.TsmCompras.Text = "Compras";
             // 
             // TsmConfiguracion
             // 
@@ -123,5 +149,8 @@
         private System.Windows.Forms.ToolStripMenuItem TsmUsuario;
         private System.Windows.Forms.ToolStripMenuItem TsmCerrarSesion;
         private System.Windows.Forms.ToolStripMenuItem TsmSalir;
+        private System.Windows.Forms.ToolStripMenuItem TsmProductos;
+        private System.Windows.Forms.ToolStripMenuItem TsmCatalogoProductos;
+        private System.Windows.Forms.ToolStripMenuItem TsmCompras;
     }
 }

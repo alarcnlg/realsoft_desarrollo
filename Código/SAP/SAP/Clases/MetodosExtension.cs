@@ -12,7 +12,9 @@ namespace SAP.Clases
     static class MetodosExtension
     {
 
-        public static void AgregarColumna(this DataGridView dtgv, string nombre, string textoCabecera, Type tipo, int ancho = 0, bool soloLectura = false, bool visible = true, string formato = "", DataGridViewAutoSizeColumnMode autoSizeColumnMode = DataGridViewAutoSizeColumnMode.None) {
+        public static void AgregarColumna(this DataGridView dtgv, string nombre, string textoCabecera, Type tipo, int ancho = 0, bool soloLectura = false, 
+                                            bool visible = true, string formato = "", DataGridViewContentAlignment alignment = DataGridViewContentAlignment.MiddleLeft, 
+                                            DataGridViewAutoSizeColumnMode autoSizeColumnMode = DataGridViewAutoSizeColumnMode.None) {
             int index = dtgv.Columns.Add(nombre, textoCabecera);
             dtgv.Columns[index].ValueType = tipo;
             dtgv.Columns[index].Name = nombre;
@@ -20,6 +22,7 @@ namespace SAP.Clases
             dtgv.Columns[index].Width = ancho;
             dtgv.Columns[index].ReadOnly = soloLectura;
             dtgv.Columns[index].Visible = visible;
+            dtgv.Columns[index].DefaultCellStyle.Alignment = alignment;
             dtgv.Columns[index].DefaultCellStyle.Format = formato;
             dtgv.Columns[index].AutoSizeMode = autoSizeColumnMode;
 

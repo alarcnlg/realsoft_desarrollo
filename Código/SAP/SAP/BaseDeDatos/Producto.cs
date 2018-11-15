@@ -79,7 +79,7 @@ namespace SAP.BaseDeDatos
             try
             {
                 MySqlConnection conn = ConexionBaseDeDatos.ConseguirConexion();
-                ConsultaBuilder consultaBuilder = new ConsultaBuilder("compras");
+                ConsultaBuilder consultaBuilder = new ConsultaBuilder("productos");
                 consultaBuilder.AgregarCriterio("ESTADO='A'");
                 consultaBuilder.AgregarOrderBy("NOMBRE");
 
@@ -94,7 +94,7 @@ namespace SAP.BaseDeDatos
 
                 productos = conn.Query<Producto>(consultaBuilder.ToString(), parametros).ToList();
             }
-            catch
+            catch(Exception ex)
             {
                 return false;
             }

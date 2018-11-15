@@ -47,13 +47,14 @@ namespace SAP.Ventanas
         {
             DtgvListado.ReadOnly = true;
             DtgvListado.RowHeadersVisible = false;
+            DtgvListado.MultiSelect = false;
             DtgvListado.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             DtgvListado.AllowUserToResizeRows = false;
             DtgvListado.AllowUserToDeleteRows = false;
             DtgvListado.AllowUserToAddRows = false;
             DtgvListado.AutoGenerateColumns = false;
 
-            DtgvListado.AgregarColumna("ID", "ID", typeof(int), visible: false);
+            DtgvListado.AgregarColumna("ID", "ID", typeof(long), visible: false);
             DtgvListado.AgregarColumna("NOMBRE", "Nombre", typeof(string), autoSizeColumnMode : DataGridViewAutoSizeColumnMode.Fill);
             DtgvListado.AgregarColumna("APELLIDOS", "Apellidos", typeof(string), autoSizeColumnMode: DataGridViewAutoSizeColumnMode.Fill);
             DtgvListado.AgregarColumna("NOMBREUSUARIO", "Nombre de Usuario", typeof(string), autoSizeColumnMode: DataGridViewAutoSizeColumnMode.Fill);

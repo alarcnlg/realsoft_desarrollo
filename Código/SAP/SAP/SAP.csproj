@@ -84,11 +84,23 @@
     <Compile Include="Ventanas\FrmConfiguracionBaseDeDatos.Designer.cs">
       <DependentUpon>FrmConfiguracionBaseDeDatos.cs</DependentUpon>
     </Compile>
+    <Compile Include="Ventanas\FrmListProductos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ventanas\FrmListProductos.Designer.cs">
+      <DependentUpon>FrmListProductos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Ventanas\FrmListUsuarios.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Ventanas\FrmListUsuarios.Designer.cs">
       <DependentUpon>FrmListUsuarios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ventanas\FrmProducto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ventanas\FrmProducto.Designer.cs">
+      <DependentUpon>FrmProducto.cs</DependentUpon>
     </Compile>
     <Compile Include="Ventanas\FrmUsuario.cs">
       <SubType>Form</SubType>
@@ -114,8 +126,14 @@
     <EmbeddedResource Include="Ventanas\FrmConfiguracionBaseDeDatos.resx">
       <DependentUpon>FrmConfiguracionBaseDeDatos.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Ventanas\FrmListProductos.resx">
+      <DependentUpon>FrmListProductos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Ventanas\FrmListUsuarios.resx">
       <DependentUpon>FrmListUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ventanas\FrmProducto.resx">
+      <DependentUpon>FrmProducto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ventanas\FrmUsuario.resx">
       <DependentUpon>FrmUsuario.cs</DependentUpon>
