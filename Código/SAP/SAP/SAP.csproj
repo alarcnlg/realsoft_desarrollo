@@ -84,6 +84,12 @@
     <Compile Include="Ventanas\FrmConfiguracionBaseDeDatos.Designer.cs">
       <DependentUpon>FrmConfiguracionBaseDeDatos.cs</DependentUpon>
     </Compile>
+    <Compile Include="Ventanas\FrmListCompras.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ventanas\FrmListCompras.Designer.cs">
+      <DependentUpon>FrmListCompras.cs</DependentUpon>
+    </Compile>
     <Compile Include="Ventanas\FrmListProductos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -125,6 +131,9 @@
     </Compile>
     <EmbeddedResource Include="Ventanas\FrmConfiguracionBaseDeDatos.resx">
       <DependentUpon>FrmConfiguracionBaseDeDatos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ventanas\FrmListCompras.resx">
+      <DependentUpon>FrmListCompras.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ventanas\FrmListProductos.resx">
       <DependentUpon>FrmListProductos.cs</DependentUpon>

@@ -74,6 +74,7 @@
             this.TsmCompras.Name = "TsmCompras";
             this.TsmCompras.Size = new System.Drawing.Size(180, 22);
             this.TsmCompras.Text = "Compras";
+            this.TsmCompras.Click += new System.EventHandler(this.TsmCompras_Click);
             // 
             // TsmConfiguracion
             // 
