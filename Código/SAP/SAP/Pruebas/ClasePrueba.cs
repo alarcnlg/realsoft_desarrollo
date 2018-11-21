@@ -9,27 +9,15 @@ using MySql.Data;
 using System.Windows.Forms;
 using Dapper;
 using Dapper.Contrib.Extensions;
+using SAP.Ventanas;
 
 namespace SAP.Pruebas
 {
     class ClasePrueba
     {
         public static bool Probar() {
-            try
-            {
-                List<Producto> prods = new List<Producto>();
-                Producto prod = new Producto();
-                prod.Nombre = "Lapiz";
-                prod.Descripcion = "Azul";
-                prod.CodigoBarras = "11111";
-                prod.Precio = 20f;
-                prod.Cantidad = 0;
-
-                Producto.Guardar(ref prod);
-                Producto.Consultar(ref prod);
-                Producto.ConsultarListado(ref prods);
-                Producto.Eliminar(prod.Id);
-
+            try { 
+            
             }
             catch (Exception ex) {
                 MessageBox.Show(ex.Message);

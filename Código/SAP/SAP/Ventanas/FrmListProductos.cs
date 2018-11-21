@@ -15,13 +15,16 @@ namespace SAP.Ventanas
     public partial class FrmListProductos : Form
     {
         private List<Producto> _modelo;
+        private bool _modoSeleccion;
 
-        public FrmListProductos()
+
+        public FrmListProductos(bool modoSeleccion = false)
         {
             InitializeComponent();
             StartPosition = FormStartPosition.CenterParent;
 
             _modelo = new List<Producto>();
+            _modoSeleccion = modoSeleccion;
         }
 
         private void FrmListProductos_Load(object sender, EventArgs e)
@@ -47,6 +50,15 @@ namespace SAP.Ventanas
 
         private void _inicializarInterfaz()
         {
+            if (_modoSeleccion)
+            {
+                Text = "Seleccione Producto";
+                BtnAceptar.Text = "Aceptar";
+
+                BtnNuevo.Visible = false;
+                BtnEliminar.Visible = false;
+            }
+
             DtgvListado.ReadOnly = true;
             DtgvListado.RowHeadersVisible = false;
             DtgvListado.MultiSelect = false;
@@ -103,10 +115,16 @@ namespace SAP.Ventanas
         private void BtnEditar_Click(object sender, EventArgs e)
         {
             if (DtgvListado.SelectedRows.Count != 1) return;
-            FrmProducto frm = new FrmProducto(_modelo[DtgvListado.SelectedRows[0].Index].Id);
-            if (frm.ShowDialog() == DialogResult.OK)
+            if (!_modoSeleccion)
             {
-                _consultar();
+                FrmProducto frm = new FrmProducto(_modelo[DtgvListado.SelectedRows[0].Index].Id);
+                if (frm.ShowDialog() == DialogResult.OK)
+                {
+                    _consultar();
+                }
+            }
+            else {
+                DialogResult = DialogResult.OK;
             }
         }
 
@@ -117,6 +135,10 @@ namespace SAP.Ventanas
             {
                 _consultar();
             }
+        }
+
+        public Producto ConseguirUsuarioSeleccionado() {
+            return _modelo[DtgvListado.SelectedRows[0].Index];
         }
 
     }

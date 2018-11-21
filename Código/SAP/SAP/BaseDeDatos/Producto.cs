@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 namespace SAP.BaseDeDatos
 {
     [Table("productos")]
-    class Producto
+    public class Producto
     {
         public long Id { get; set; }
         public string CodigoBarras { get; set; }

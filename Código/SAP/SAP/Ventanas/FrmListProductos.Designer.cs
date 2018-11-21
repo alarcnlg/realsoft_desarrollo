@@ -34,7 +34,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.BtnNuevo = new System.Windows.Forms.Button();
             this.BtnEliminar = new System.Windows.Forms.Button();
-            this.BtnEditar = new System.Windows.Forms.Button();
+            this.BtnAceptar = new System.Windows.Forms.Button();
             this.DtgvListado = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.DtgvListado)).BeginInit();
             this.SuspendLayout();
@@ -100,16 +100,16 @@
             this.BtnEliminar.UseVisualStyleBackColor = true;
             this.BtnEliminar.Click += new System.EventHandler(this.BtnEliminar_Click);
             // 
-            // BtnEditar
+            // BtnAceptar
             // 
-            this.BtnEditar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.BtnEditar.Location = new System.Drawing.Point(579, 339);
-            this.BtnEditar.Name = "BtnEditar";
-            this.BtnEditar.Size = new System.Drawing.Size(75, 23);
-            this.BtnEditar.TabIndex = 9;
-            this.BtnEditar.Text = "Editar";
-            this.BtnEditar.UseVisualStyleBackColor = true;
-            this.BtnEditar.Click += new System.EventHandler(this.BtnEditar_Click);
+            this.BtnAceptar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.BtnAceptar.Location = new System.Drawing.Point(579, 339);
+            this.BtnAceptar.Name = "BtnAceptar";
+            this.BtnAceptar.Size = new System.Drawing.Size(75, 23);
+            this.BtnAceptar.TabIndex = 9;
+            this.BtnAceptar.Text = "Editar";
+            this.BtnAceptar.UseVisualStyleBackColor = true;
+            this.BtnAceptar.Click += new System.EventHandler(this.BtnEditar_Click);
             // 
             // DtgvListado
             // 
@@ -133,7 +133,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.BtnNuevo);
             this.Controls.Add(this.BtnEliminar);
-            this.Controls.Add(this.BtnEditar);
+            this.Controls.Add(this.BtnAceptar);
             this.Controls.Add(this.DtgvListado);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MinimizeBox = false;
@@ -155,7 +155,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button BtnNuevo;
         private System.Windows.Forms.Button BtnEliminar;
-        private System.Windows.Forms.Button BtnEditar;
+        private System.Windows.Forms.Button BtnAceptar;
         private System.Windows.Forms.DataGridView DtgvListado;
     }
 }
