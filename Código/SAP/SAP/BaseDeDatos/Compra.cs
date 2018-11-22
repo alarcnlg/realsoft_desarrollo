@@ -33,6 +33,7 @@ namespace SAP.BaseDeDatos
             try
             {
                 MySqlConnection conn = ConexionBaseDeDatos.ConseguirConexion();
+                compra.FechaCancelacion = DateTime.Now;
                 compra.Estado = 'A';
 
                 compra.Id = conn.Insert(compra);
