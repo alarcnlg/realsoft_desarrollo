@@ -109,7 +109,18 @@ namespace SAP.Ventanas
 
         private void BtnEliminar_Click(object sender, EventArgs e)
         {
-           
+            if (DtgvListado.SelectedRows.Count != 1) return;
+            if (MessageBox.Show("¿Está seguro de Eliminar este Producto?", "Eliminar", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation) == DialogResult.OK)
+            {
+                if (!Producto.Eliminar(_modelo[DtgvListado.SelectedRows[0].Index].Id))
+                {
+                    MessageBox.Show("Error al eliminar Producto", "Eliminar", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                MessageBox.Show("Producto eliminado correctamente", "Eliminar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                _consultar();
+            }
+
         }
 
         private void BtnEditar_Click(object sender, EventArgs e)
