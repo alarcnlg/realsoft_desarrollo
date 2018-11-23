@@ -148,7 +148,7 @@ namespace SAP.Ventanas
             }
         }
 
-        public Producto ConseguirUsuarioSeleccionado() {
+        public Producto ConseguirProductoSeleccionado() {
             return _modelo[DtgvListado.SelectedRows[0].Index];
         }
 

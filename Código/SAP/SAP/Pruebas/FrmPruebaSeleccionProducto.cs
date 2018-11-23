@@ -27,7 +27,7 @@ namespace SAP.Pruebas
 
             if (frm.ShowDialog() == DialogResult.OK)
             {
-                prod = frm.ConseguirUsuarioSeleccionado();
+                prod = frm.ConseguirProductoSeleccionado();
                 TxtNombre.Text = prod.Nombre;
                 TxtCantidad.Text = prod.Cantidad.ToString();
                 TxtCosto.Text = prod.Precio.ToString();

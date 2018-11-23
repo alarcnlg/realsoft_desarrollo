@@ -62,11 +62,11 @@
     <Compile Include="BaseDeDatos\Usuario.cs" />
     <Compile Include="Clases\ArchivoConfiguracion.cs" />
     <Compile Include="Clases\MetodosExtension.cs" />
-    <Compile Include="FrmListComprasProductos.cs">
+    <Compile Include="Ventanas\FrmCompraProductos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmListComprasProductos.Designer.cs">
-      <DependentUpon>FrmListComprasProductos.cs</DependentUpon>
+    <Compile Include="Ventanas\FrmCompraProductos.Designer.cs">
+      <DependentUpon>FrmCompraProductos.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmLogin.cs">
       <SubType>Form</SubType>
@@ -126,8 +126,8 @@
     <Compile Include="Ventanas\FrmUsuario.Designer.cs">
       <DependentUpon>FrmUsuario.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="FrmListComprasProductos.resx">
-      <DependentUpon>FrmListComprasProductos.cs</DependentUpon>
+    <EmbeddedResource Include="Ventanas\FrmCompraProductos.resx">
+      <DependentUpon>FrmCompraProductos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>

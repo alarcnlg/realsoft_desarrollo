@@ -25,6 +25,7 @@ namespace SAP.Clases
             dtgv.Columns[index].DefaultCellStyle.Alignment = alignment;
             dtgv.Columns[index].DefaultCellStyle.Format = formato;
             dtgv.Columns[index].AutoSizeMode = autoSizeColumnMode;
+            dtgv.Columns[index].SortMode = DataGridViewColumnSortMode.NotSortable;
 
         }
 
