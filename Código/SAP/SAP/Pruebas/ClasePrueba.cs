@@ -21,7 +21,7 @@ namespace SAP.Pruebas
                 DataGridView dtgv = new DataGridView();
 
                 //Constructor de la ventana o evento Load
-                Compra compra = new Compra();
+                BaseDeDatos.Compra compra = new BaseDeDatos.Compra();
                 compra.Detalles = new List<CompraDetalle>();
                 /////////////////////////////////////////
 

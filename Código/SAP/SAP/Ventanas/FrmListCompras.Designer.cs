@@ -41,12 +41,13 @@
             // BtnNuevo
             // 
             this.BtnNuevo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.BtnNuevo.Location = new System.Drawing.Point(12, 339);
+            this.BtnNuevo.Location = new System.Drawing.Point(12, 341);
             this.BtnNuevo.Name = "BtnNuevo";
             this.BtnNuevo.Size = new System.Drawing.Size(75, 23);
             this.BtnNuevo.TabIndex = 5;
             this.BtnNuevo.Text = "Nuevo";
             this.BtnNuevo.UseVisualStyleBackColor = true;
+            this.BtnNuevo.Click += new System.EventHandler(this.BtnNuevo_Click);
             // 
             // BtnEditar
             // 

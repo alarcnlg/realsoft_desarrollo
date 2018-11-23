@@ -14,14 +14,14 @@ namespace SAP.Ventanas
 {
     public partial class FrmListCompras : Form
     {
-        private List<Compra> _modelo;
+        private List<BaseDeDatos.Compra> _modelo;
 
         public FrmListCompras()
         {
             InitializeComponent();
             StartPosition = FormStartPosition.CenterParent;
-            
-            _modelo = new List<Compra>();
+
+            _modelo = new List<BaseDeDatos.Compra>();
         }
 
         private void FrmListCompras_Load(object sender, EventArgs e)
@@ -35,7 +35,7 @@ namespace SAP.Ventanas
         }
         private void _consultar()
         {
-            if (!Compra.ConsultarListado(ref _modelo,"folio", TxtBuscar.Text))
+            if (!BaseDeDatos.Compra.ConsultarListado(ref _modelo, "folio", TxtBuscar.Text))
             {
                 MessageBox.Show("Error al consultar compras", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -83,7 +83,7 @@ namespace SAP.Ventanas
             if (DtgvListado.SelectedRows[0].Cells[5].Value.ToString() == "Cancelado") return;
             if (MessageBox.Show("¿Está seguro de Cancelar esta Compra?", "Cancelar", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation) == DialogResult.OK)
             {
-                if (!Compra.Cancelar(_modelo[DtgvListado.SelectedRows[0].Index].Id))
+                if (!BaseDeDatos.Compra.Cancelar(_modelo[DtgvListado.SelectedRows[0].Index].Id))
                 {
                     MessageBox.Show("Error al Cancelar Compra", "Cancelar", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
@@ -104,6 +104,15 @@ namespace SAP.Ventanas
         private void BtnBuscar_Click(object sender, EventArgs e)
         {
             _consultar();
+        }
+
+        private void BtnNuevo_Click(object sender, EventArgs e)
+        {
+            Compra frm = new Compra();
+            if (frm.ShowDialog() == DialogResult.OK)
+            {
+                _consultar();
+            }
         }
     }
 }
