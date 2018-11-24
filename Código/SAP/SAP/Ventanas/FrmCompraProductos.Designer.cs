@@ -37,14 +37,14 @@
             this.label5 = new System.Windows.Forms.Label();
             this.txtCant = new System.Windows.Forms.TextBox();
             this.txtCosto = new System.Windows.Forms.TextBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dtpFecha = new System.Windows.Forms.DateTimePicker();
             this.tbldatos = new System.Windows.Forms.DataGridView();
             this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Costo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label6 = new System.Windows.Forms.Label();
             this.txttotal = new System.Windows.Forms.TextBox();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnGuardar = new System.Windows.Forms.Button();
             this.BtnBuscar = new System.Windows.Forms.Button();
             this.BtnAgregar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.tbldatos)).BeginInit();
@@ -129,12 +129,12 @@
             this.txtCosto.Size = new System.Drawing.Size(100, 20);
             this.txtCosto.TabIndex = 4;
             // 
-            // dateTimePicker1
+            // dtpFecha
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(454, 43);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker1.TabIndex = 1;
+            this.dtpFecha.Location = new System.Drawing.Point(454, 43);
+            this.dtpFecha.Name = "dtpFecha";
+            this.dtpFecha.Size = new System.Drawing.Size(200, 20);
+            this.dtpFecha.TabIndex = 1;
             // 
             // tbldatos
             // 
@@ -185,14 +185,15 @@
             this.txttotal.TabIndex = 12;
             this.txttotal.Text = "0";
             // 
-            // button2
+            // btnGuardar
             // 
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(564, 369);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(90, 26);
-            this.button2.TabIndex = 7;
-            this.button2.Text = "Guardar";
+            this.btnGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGuardar.Location = new System.Drawing.Point(571, 369);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(83, 26);
+            this.btnGuardar.TabIndex = 6;
+            this.btnGuardar.Text = "Guardar";
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // BtnBuscar
             // 
@@ -221,11 +222,11 @@
             this.ClientSize = new System.Drawing.Size(709, 421);
             this.Controls.Add(this.BtnAgregar);
             this.Controls.Add(this.BtnBuscar);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.txttotal);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.tbldatos);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.dtpFecha);
             this.Controls.Add(this.txtCosto);
             this.Controls.Add(this.txtCant);
             this.Controls.Add(this.label5);
@@ -248,7 +249,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cantidad;
         private System.Windows.Forms.DataGridViewTextBoxColumn Costo;
-        public System.Windows.Forms.Button button2;
+        public System.Windows.Forms.Button btnGuardar;
         public System.Windows.Forms.Label label1;
         public System.Windows.Forms.TextBox txtFolio;
         public System.Windows.Forms.Label label2;
@@ -258,7 +259,7 @@
         public System.Windows.Forms.Label label5;
         public System.Windows.Forms.TextBox txtCant;
         public System.Windows.Forms.TextBox txtCosto;
-        public System.Windows.Forms.DateTimePicker dateTimePicker1;
+        public System.Windows.Forms.DateTimePicker dtpFecha;
         public System.Windows.Forms.DataGridView tbldatos;
         public System.Windows.Forms.Label label6;
         public System.Windows.Forms.TextBox txttotal;

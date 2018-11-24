@@ -1,5 +1,6 @@
 ﻿using SAP.BaseDeDatos;
 using SAP.Clases;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -101,6 +102,33 @@ namespace SAP.Ventanas
             txtCosto.Text = "";
             txtCant.Text = "";
         }
+
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            Compra pCompra = new Compra();
+            pCompra.Folio = txtFolio.Text.Trim();
+                // pCompra.Fecha = dtpFecha.Value.Year + "/" + dtpFecha.Value.Month + "/" + dtpFecha.Value.Day;
+                // pCompra.Total= txttotal.Text.Trim();
+
+                // int resultado = Compra.Guardar(pCompra);
+                // if (resultado > 0)
+                {
+                MessageBox.Show("Compra Guardado Con Exito!!", "Guardado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+               // Limpiar();
+                //Deshabilitar();
+
+            }
+            //else
+            {
+                MessageBox.Show("No se pudo guardar la compra", "Fallo!!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+        }
+
+     
     }
 }
+        
+    
+
+
     
