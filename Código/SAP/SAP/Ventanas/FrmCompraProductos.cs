@@ -107,24 +107,25 @@ namespace SAP.Ventanas
         {
             Compra pCompra = new Compra();
             pCompra.Folio = txtFolio.Text.Trim();
-                // pCompra.Fecha = dtpFecha.Value.Year + "/" + dtpFecha.Value.Month + "/" + dtpFecha.Value.Day;
-                // pCompra.Total= txttotal.Text.Trim();
+            /*  pCompra.Fecha = dtpFecha.Value.Year + "/" + dtpFecha.Value.Month + "/" + dtpFecha.Value.Day;
+             pCompra.Total= txttotal.Text.Trim();
 
-                // int resultado = Compra.Guardar(pCompra);
-                // if (resultado > 0)
-                {
+              float resultado = Compra.Guardar(pCompra);
+              if (resultado > 0)*/
+            {
                 MessageBox.Show("Compra Guardado Con Exito!!", "Guardado", MessageBoxButtons.OK, MessageBoxIcon.Information);
-               // Limpiar();
-                //Deshabilitar();
+            /*   Limpiar();
+                Deshabilitar();
 
-            }
+           }*/
             //else
             {
-                MessageBox.Show("No se pudo guardar la compra", "Fallo!!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    MessageBox.Show("No se pudo guardar la compra", "Fallo!!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
             }
-        }
 
-     
+
+        }
     }
 }
         
