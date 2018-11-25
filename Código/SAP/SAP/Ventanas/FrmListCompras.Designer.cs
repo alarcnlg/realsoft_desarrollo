@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.BtnNuevo = new System.Windows.Forms.Button();
-            this.BtnEditar = new System.Windows.Forms.Button();
             this.BtnBuscar = new System.Windows.Forms.Button();
             this.TxtBuscar = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -48,16 +47,6 @@
             this.BtnNuevo.Text = "Nuevo";
             this.BtnNuevo.UseVisualStyleBackColor = true;
             this.BtnNuevo.Click += new System.EventHandler(this.BtnNuevo_Click);
-            // 
-            // BtnEditar
-            // 
-            this.BtnEditar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.BtnEditar.Location = new System.Drawing.Point(579, 339);
-            this.BtnEditar.Name = "BtnEditar";
-            this.BtnEditar.Size = new System.Drawing.Size(75, 23);
-            this.BtnEditar.TabIndex = 4;
-            this.BtnEditar.Text = "Editar";
-            this.BtnEditar.UseVisualStyleBackColor = true;
             // 
             // BtnBuscar
             // 
@@ -102,7 +91,7 @@
             // 
             // BtnCancelar
             // 
-            this.BtnCancelar.Location = new System.Drawing.Point(489, 341);
+            this.BtnCancelar.Location = new System.Drawing.Point(579, 341);
             this.BtnCancelar.Name = "BtnCancelar";
             this.BtnCancelar.Size = new System.Drawing.Size(75, 23);
             this.BtnCancelar.TabIndex = 21;
@@ -121,7 +110,6 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.DtgvListado);
             this.Controls.Add(this.BtnNuevo);
-            this.Controls.Add(this.BtnEditar);
             this.MinimizeBox = false;
             this.Name = "FrmListCompras";
             this.ShowIcon = false;
@@ -136,7 +124,6 @@
         #endregion
 
         private System.Windows.Forms.Button BtnNuevo;
-        private System.Windows.Forms.Button BtnEditar;
         private System.Windows.Forms.Button BtnBuscar;
         private System.Windows.Forms.TextBox TxtBuscar;
         private System.Windows.Forms.Label label1;

@@ -1,7 +1,7 @@
 ###############################################################
 #	REALSOFT												  #
 #	Base de Datos SAP-Sistema de Administración de Papelería  #
-#	Versión: 20181101										  #
+#	Versión: 20181122										  #
 ###############################################################
 
 DROP DATABASE IF EXISTS SAP;
@@ -38,7 +38,7 @@ CREATE TABLE compras(
     FECHA DATE COMMENT 'Fecha de compra',
     TOTAL FLOAT COMMENT 'Costo total de la compra',
     FECHACANCELACION DATE COMMENT 'Fecha de cancelación',
-	ESTADO ENUM('A','C') COMMENT 'A=Activa, C=Cancelado'
+	ESTADO ENUM('A','C') COMMENT 'A=Activa, C=Cancelada'
 );
 
 DROP TABLE IF EXISTS comprasdetalles;
@@ -51,6 +51,28 @@ CREATE TABLE comprasdetalles(
     CONSTRAINT FOREIGN KEY (IDCOMPRA) REFERENCES compras(ID),
     CONSTRAINT FOREIGN KEY (IDPRODUCTO) REFERENCES productos(ID)
 );
+
+DROP TABLE IF EXISTS ventas;
+CREATE TABLE ventas(
+	ID INT PRIMARY KEY AUTO_INCREMENT COMMENT 'ID Único',
+    FECHA DATE COMMENT 'Fecha de venta',
+    TOTAL FLOAT COMMENT 'Total de la venta',
+    FECHACANCELACION DATE COMMENT 'Fecha de cancelación',
+	ESTADO ENUM('A','C') COMMENT 'A=Activa, C=Cancelada'
+);
+
+DROP TABLE IF EXISTS ventasdetalles;
+CREATE TABLE ventasdetalles(
+	ID INT PRIMARY KEY AUTO_INCREMENT COMMENT 'ID Único',
+	IDVENTA INT COMMENT 'Identificador de la venta',
+    IDPRODUCTO INT COMMENT 'Producto de la venta',
+    CANTIDAD INT COMMENT 'Cantidad vendida',
+    PRECIOUNIDAD FLOAT COMMENT 'Costo de la unidad',
+	TOTAL FLOAT COMMENT 'Total del detalle de la venta',
+    CONSTRAINT FOREIGN KEY (IDVENTA) REFERENCES ventas(ID),
+    CONSTRAINT FOREIGN KEY (IDPRODUCTO) REFERENCES productos(ID)
+);
+
 
 ################################
 #	Registros base 			   #		 	

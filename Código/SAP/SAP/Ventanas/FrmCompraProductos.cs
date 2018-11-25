@@ -107,25 +107,33 @@ namespace SAP.Ventanas
         {
             Compra pCompra = new Compra();
             pCompra.Folio = txtFolio.Text.Trim();
-            /*  pCompra.Fecha = dtpFecha.Value.Year + "/" + dtpFecha.Value.Month + "/" + dtpFecha.Value.Day;
-             pCompra.Total= txttotal.Text.Trim();
+            pCompra.Fecha = dtpFecha.Value;
+            pCompra.Total= float.Parse(txttotal.Text.Trim());
 
-              float resultado = Compra.Guardar(pCompra);
-              if (resultado > 0)*/
-            {
-                MessageBox.Show("Compra Guardado Con Exito!!", "Guardado", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            /*   Limpiar();
-                Deshabilitar();
+            CompraDetalle compraDetalle = null;
 
-           }*/
-            //else
+            float total = 0;
+            for (int i = 0; i < tbldatos.RowCount; i++)
             {
-                    MessageBox.Show("No se pudo guardar la compra", "Fallo!!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                }
+                compraDetalle = new CompraDetalle();
+                compraDetalle.IdProducto = Convert.ToInt32(tbldatos.Rows[i].Cells["ID"].Value);
+                compraDetalle.Cantidad = Convert.ToInt32(tbldatos.Rows[i].Cells["CANTIDAD"].Value);
+                compraDetalle.CostoUnidad = float.Parse(tbldatos.Rows[i].Cells["COSTO"].Value.ToString());
+                total += compraDetalle.Cantidad * compraDetalle.CostoUnidad;
+                pCompra.Detalles.Add(compraDetalle);
             }
 
-
+            if (Compra.Guardar(ref pCompra)) 
+            {
+                MessageBox.Show("Compra Guardado Con Exito!!", "Guardado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                DialogResult = DialogResult.OK;
+            }
+            else
+            {
+                MessageBox.Show("No se pudo guardar la compra", "Fallo!!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
         }
+
     }
 }
         

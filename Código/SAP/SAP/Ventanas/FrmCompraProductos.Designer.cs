@@ -71,7 +71,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(394, 45);
+            this.label2.Location = new System.Drawing.Point(495, 45);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(54, 18);
             this.label2.TabIndex = 2;
@@ -131,9 +131,10 @@
             // 
             // dtpFecha
             // 
-            this.dtpFecha.Location = new System.Drawing.Point(454, 43);
+            this.dtpFecha.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpFecha.Location = new System.Drawing.Point(555, 43);
             this.dtpFecha.Name = "dtpFecha";
-            this.dtpFecha.Size = new System.Drawing.Size(200, 20);
+            this.dtpFecha.Size = new System.Drawing.Size(99, 20);
             this.dtpFecha.TabIndex = 1;
             // 
             // tbldatos
@@ -236,6 +237,9 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtFolio);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FrmCompraProductos";
             this.Text = "ComprasProductos";
             this.Load += new System.EventHandler(this.FrmListComprasProductos_Load);
