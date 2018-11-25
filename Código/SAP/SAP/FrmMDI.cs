@@ -24,8 +24,17 @@ namespace SAP
 
         private void FrmMDI_Load(object sender, EventArgs e)
         {
-            ToolStripMenuItem item = (ToolStripMenuItem) MnuMain.Items.Find("TsmUsuario", false)[0];
+            ToolStripMenuItem item = (ToolStripMenuItem)MnuMain.Items.Find("TsmUsuario", false)[0];
             item.Text = ModuloGeneral.UsuarioActivo.NombreUsuario;
+
+            if (ModuloGeneral.UsuarioActivo.Tipo == 'C')
+            {
+                for (int i = 1; i < MnuMain.Items.Count - 1; i++)
+                {
+                    MnuMain.Items[i].Visible = false;
+                }
+                new FrmPuntoVenta().ShowDialog();
+            }
         }
 
         private void FrmMDI_FormClosed(object sender, FormClosedEventArgs e)
@@ -55,12 +64,25 @@ namespace SAP
             this.CargarFormulario(new FrmListCompras());
         }
 
+        private void TsmPuntoVenta_Click(object sender, EventArgs e)
+        {
+            new FrmPuntoVenta().ShowDialog();
+        }
+
         private void TsmCerrarSesion_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("¿Está seguro de cerrar Sesión?", "Cerrar sesión", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation) == DialogResult.OK)
             {
                 ModuloGeneral.FrmLogin.Visible = true;
                 CerraAplicacion = false;
+                Close();
+            }
+        }
+
+        private void TsmSalir_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("¿Está seguro de Salir?", "Salir", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation) == DialogResult.OK)
+            {
                 Close();
             }
         }

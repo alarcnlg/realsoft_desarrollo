@@ -1,1 +1,3 @@
 ﻿--Al cancelar compras revertir los cambios de inventario
+
+--En el Punto de Venta, en LlenarDatosBusqueda, no se aceptan los Nombres de la Columna, solo indices

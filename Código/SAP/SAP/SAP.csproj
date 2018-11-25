@@ -60,6 +60,8 @@
     <Compile Include="BaseDeDatos\Core\ConsultaBuilder.cs" />
     <Compile Include="BaseDeDatos\Producto.cs" />
     <Compile Include="BaseDeDatos\Usuario.cs" />
+    <Compile Include="BaseDeDatos\Venta.cs" />
+    <Compile Include="BaseDeDatos\VentaDetalle.cs" />
     <Compile Include="Clases\ArchivoConfiguracion.cs" />
     <Compile Include="Clases\MetodosExtension.cs" />
     <Compile Include="Ventanas\FrmCompraProductos.cs">
@@ -120,6 +122,12 @@
     <Compile Include="Ventanas\FrmProducto.Designer.cs">
       <DependentUpon>FrmProducto.cs</DependentUpon>
     </Compile>
+    <Compile Include="Ventanas\FrmPuntoVenta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ventanas\FrmPuntoVenta.Designer.cs">
+      <DependentUpon>FrmPuntoVenta.cs</DependentUpon>
+    </Compile>
     <Compile Include="Ventanas\FrmUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -162,6 +170,9 @@
     <EmbeddedResource Include="Ventanas\FrmProducto.resx">
       <DependentUpon>FrmProducto.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Ventanas\FrmPuntoVenta.resx">
+      <DependentUpon>FrmPuntoVenta.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Ventanas\FrmUsuario.resx">
       <DependentUpon>FrmUsuario.cs</DependentUpon>
     </EmbeddedResource>
@@ -184,6 +195,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Desarrollo\DefinicionBaseDeDatos.sql" />
+    <Content Include="Desarrollo\Pendientes.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

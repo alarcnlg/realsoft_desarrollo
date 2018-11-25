@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.MnuMain = new System.Windows.Forms.MenuStrip();
+            this.TsmPuntoVenta = new System.Windows.Forms.ToolStripMenuItem();
             this.TsmProductos = new System.Windows.Forms.ToolStripMenuItem();
             this.TsmCatalogoProductos = new System.Windows.Forms.ToolStripMenuItem();
             this.TsmCompras = new System.Windows.Forms.ToolStripMenuItem();
@@ -44,6 +45,7 @@
             // MnuMain
             // 
             this.MnuMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.TsmPuntoVenta,
             this.TsmProductos,
             this.TsmConfiguracion,
             this.TsmUsuario});
@@ -52,6 +54,13 @@
             this.MnuMain.Size = new System.Drawing.Size(800, 24);
             this.MnuMain.TabIndex = 1;
             this.MnuMain.Text = "menuStrip1";
+            // 
+            // TsmPuntoVenta
+            // 
+            this.TsmPuntoVenta.Name = "TsmPuntoVenta";
+            this.TsmPuntoVenta.Size = new System.Drawing.Size(99, 20);
+            this.TsmPuntoVenta.Text = "Punto de Venta";
+            this.TsmPuntoVenta.Click += new System.EventHandler(this.TsmPuntoVenta_Click);
             // 
             // TsmProductos
             // 
@@ -65,14 +74,14 @@
             // TsmCatalogoProductos
             // 
             this.TsmCatalogoProductos.Name = "TsmCatalogoProductos";
-            this.TsmCatalogoProductos.Size = new System.Drawing.Size(180, 22);
+            this.TsmCatalogoProductos.Size = new System.Drawing.Size(122, 22);
             this.TsmCatalogoProductos.Text = "Catálogo";
             this.TsmCatalogoProductos.Click += new System.EventHandler(this.TsmCatalogoProductos_Click);
             // 
             // TsmCompras
             // 
             this.TsmCompras.Name = "TsmCompras";
-            this.TsmCompras.Size = new System.Drawing.Size(180, 22);
+            this.TsmCompras.Size = new System.Drawing.Size(122, 22);
             this.TsmCompras.Text = "Compras";
             this.TsmCompras.Click += new System.EventHandler(this.TsmCompras_Click);
             // 
@@ -111,15 +120,16 @@
             // TsmCerrarSesion
             // 
             this.TsmCerrarSesion.Name = "TsmCerrarSesion";
-            this.TsmCerrarSesion.Size = new System.Drawing.Size(143, 22);
+            this.TsmCerrarSesion.Size = new System.Drawing.Size(180, 22);
             this.TsmCerrarSesion.Text = "Cerrar Sesión";
             this.TsmCerrarSesion.Click += new System.EventHandler(this.TsmCerrarSesion_Click);
             // 
             // TsmSalir
             // 
             this.TsmSalir.Name = "TsmSalir";
-            this.TsmSalir.Size = new System.Drawing.Size(143, 22);
+            this.TsmSalir.Size = new System.Drawing.Size(180, 22);
             this.TsmSalir.Text = "Salir";
+            this.TsmSalir.Click += new System.EventHandler(this.TsmSalir_Click);
             // 
             // FrmMDI
             // 
@@ -153,5 +163,6 @@
         private System.Windows.Forms.ToolStripMenuItem TsmProductos;
         private System.Windows.Forms.ToolStripMenuItem TsmCatalogoProductos;
         private System.Windows.Forms.ToolStripMenuItem TsmCompras;
+        private System.Windows.Forms.ToolStripMenuItem TsmPuntoVenta;
     }
 }

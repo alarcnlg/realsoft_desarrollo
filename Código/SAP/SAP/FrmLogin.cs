@@ -49,7 +49,7 @@ namespace SAP
             }
 
 
-            Pruebas.ClasePrueba.Probar();
+            ClasePrueba.Probar();
         }
 
         private bool _validar() {
@@ -81,7 +81,7 @@ namespace SAP
                 TxtNombreUsuario.Focus();
                 TxtNombreUsuario.Clear();
                 TxtPassword.Clear();
-
+                
                 FrmMDI frmMDI = new FrmMDI();
                 ModuloGeneral.FrmMDI = frmMDI;
                 frmMDI.Show();

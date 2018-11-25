@@ -1,4 +1,5 @@
-﻿using Dapper.Contrib.Extensions;
+﻿using Dapper;
+using Dapper.Contrib.Extensions;
 using MySql.Data.MySqlClient;
 using SAP.BaseDeDatos.Core;
 using System;
@@ -6,15 +7,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Dapper;
 
 namespace SAP.BaseDeDatos
 {
-    [Table("compras")]
-    class Compra
+    [Table("ventas")]
+    class Venta
     {
         public long Id { get; set; }
-        public string Folio { get; set; }
         public DateTime Fecha { get; set; }
         public float Total { get; set; }
         public DateTime FechaCancelacion { get; set; }
@@ -22,29 +21,29 @@ namespace SAP.BaseDeDatos
 
         [Write(false)]
         [Computed()]
-        public List<CompraDetalle> Detalles { get; set; }
+        public List<VentaDetalle> Detalles { get; set; }
 
-        public static bool Guardar(ref Compra compra)
+        public static bool Guardar(ref Venta venta)
         {
             try
             {
                 MySqlConnection conn = ConexionBaseDeDatos.ConseguirConexion();
-                compra.FechaCancelacion = DateTime.Now;
-                compra.Estado = 'A';
+                venta.FechaCancelacion = DateTime.Now;
+                venta.Estado = 'A';
 
-                compra.Id = conn.Insert(compra);
+                venta.Id = conn.Insert(venta);
 
-                for (int i = 0; i < compra.Detalles.Count; i++)
+                for (int i = 0; i < venta.Detalles.Count; i++)
                 {
-                    compra.Detalles[i].IdCompra = compra.Id;
-                    conn.Insert(compra.Detalles[i]);
+                    venta.Detalles[i].IdVenta = venta.Id;
+                    conn.Insert(venta.Detalles[i]);
 
-                    if (!Producto.AgregarInventario(compra.Detalles[i].IdProducto, compra.Detalles[i].Cantidad))
+                    if (!Producto.RestarInventario(venta.Detalles[i].IdProducto, venta.Detalles[i].Cantidad))
                     {
                         throw new Exception(ConexionBaseDeDatos.Error);
                     }
                 }
- 
+
             }
             catch (Exception ex)
             {
@@ -59,8 +58,8 @@ namespace SAP.BaseDeDatos
             try
             {
                 MySqlConnection conn = ConexionBaseDeDatos.ConseguirConexion();
-                string sql = "UPDATE compras SET ESTADO='C' WHERE ID=@ID";
-                conn.Execute(sql, new { ID = id});
+                string sql = "UPDATE ventas SET ESTADO='C' WHERE ID=@ID";
+                conn.Execute(sql, new { ID = id });
             }
             catch (Exception ex)
             {
@@ -70,29 +69,30 @@ namespace SAP.BaseDeDatos
             return true;
         }
 
-        public static bool Consultar(ref Compra compra)
+        public static bool Consultar(ref Venta venta)
         {
 
             try
             {
                 MySqlConnection conn = ConexionBaseDeDatos.ConseguirConexion();
 
-                ConsultaBuilder consultaBuilder = new ConsultaBuilder("compras c");
-                consultaBuilder.AgregarCampo("c.*, d.*");
-                consultaBuilder.AgregarJoin("INNER JOIN comprasdetalles d ON d.IDCOMPRA = c.ID");
-                consultaBuilder.AgregarCriterio("c.ID=@ID");
+                ConsultaBuilder consultaBuilder = new ConsultaBuilder("ventas v");
+                consultaBuilder.AgregarCampo("v.*, d.*");
+                consultaBuilder.AgregarJoin("INNER JOIN ventadetalles d ON d.IDVENTA = v.ID");
+                consultaBuilder.AgregarCriterio("v.ID=@ID");
 
-                Compra compraConsulta = null;
+                Venta ventaConsulta = null;
 
-                compra = conn.Query<Compra, CompraDetalle, Compra>(consultaBuilder.ToString(),
-                    (comprasel, detalle) => {
-                        if (compraConsulta == null) {
-                            compraConsulta = comprasel;
-                            compraConsulta.Detalles = new List<CompraDetalle>();
+                venta = conn.Query<Venta, VentaDetalle, Venta>(consultaBuilder.ToString(),
+                    (ventasel, detalle) => {
+                        if (ventaConsulta == null)
+                        {
+                            ventaConsulta = ventasel;
+                            ventaConsulta.Detalles = new List<VentaDetalle>();
                         }
-                        compraConsulta.Detalles.Add(detalle);
-                        return compraConsulta;
-                    }, new { ID = compra.Id }).FirstOrDefault();
+                        ventaConsulta.Detalles.Add(detalle);
+                        return ventaConsulta;
+                    }, new { ID = venta.Id }).FirstOrDefault();
 
             }
             catch (Exception ex)
@@ -103,12 +103,12 @@ namespace SAP.BaseDeDatos
             return true;
         }
 
-        public static bool ConsultarListado(ref List<Compra> compras, string campoCriterio = "", string datoCriterio = "")
+        public static bool ConsultarListado(ref List<Venta> ventas, string campoCriterio = "", string datoCriterio = "")
         {
             try
             {
                 MySqlConnection conn = ConexionBaseDeDatos.ConseguirConexion();
-                ConsultaBuilder consultaBuilder = new ConsultaBuilder("compras");
+                ConsultaBuilder consultaBuilder = new ConsultaBuilder("ventas");
 
                 DynamicParameters parametros = null;
 
@@ -119,7 +119,7 @@ namespace SAP.BaseDeDatos
                     consultaBuilder.AgregarCriterio($"{campoCriterio} LIKE @DATO");
                 }
 
-                compras = conn.Query<Compra>(consultaBuilder.ToString(), parametros).ToList();
+                ventas = conn.Query<Venta>(consultaBuilder.ToString(), parametros).ToList();
             }
             catch
             {

@@ -60,7 +60,6 @@ namespace SAP.BaseDeDatos
 
         public static bool Consultar(ref Producto producto)
         {
-
             try
             {
                 MySqlConnection conn = ConexionBaseDeDatos.ConseguirConexion();
@@ -124,5 +123,46 @@ namespace SAP.BaseDeDatos
             return true;
         }
 
+        public static bool RestarInventario(long id, int cantidad)
+        {
+            try
+            {
+                MySqlConnection conn = ConexionBaseDeDatos.ConseguirConexion();
+                ConsultaBuilder consultaBuilder = new ConsultaBuilder("productos");
+                consultaBuilder.AgregarCampo("CANTIDAD");
+                consultaBuilder.AgregarCriterio("ID=@ID");
+
+                string sql = "UPDATE productos SET CANTIDAD=@CANTIDAD WHERE ID=@ID";
+
+                int cantidadActual = (int)conn.ExecuteScalar(consultaBuilder.ToString(), new { ID = id });
+
+                conn.Execute(sql, new { ID = id, CANTIDAD = cantidadActual - cantidad });
+            }
+            catch (Exception ex)
+            {
+                ConexionBaseDeDatos.Error = ex.Message;
+                return false;
+            }
+            return true;
+        }
+
+        public static bool ValidarExistencia(long id, int cantidad)
+        {
+            try
+            {
+                MySqlConnection conn = ConexionBaseDeDatos.ConseguirConexion();
+                ConsultaBuilder consultaBuilder = new ConsultaBuilder("productos");
+                consultaBuilder.AgregarCampo("(CANTIDAD - @CANTIDAD) AS CANTIDAD");
+                consultaBuilder.AgregarCriterio("ID=@ID");
+                int cant = Convert.ToInt32(conn.ExecuteScalar(consultaBuilder.ToString(), new { ID = id, CANTIDAD = cantidad }));
+                if (cant < 0) return false;
+            }
+            catch (Exception ex)
+            {
+                ConexionBaseDeDatos.Error = ex.Message;
+                return false;
+            }
+            return true;
+        }
     }
 }
