@@ -64,6 +64,12 @@
     <Compile Include="BaseDeDatos\VentaDetalle.cs" />
     <Compile Include="Clases\ArchivoConfiguracion.cs" />
     <Compile Include="Clases\MetodosExtension.cs" />
+    <Compile Include="Ventanas\FrmTotal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ventanas\FrmTotal.Designer.cs">
+      <DependentUpon>FrmTotal.cs</DependentUpon>
+    </Compile>
     <Compile Include="Ventanas\FrmCompraProductos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -181,6 +187,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Ventanas\FrmPuntoVenta.resx">
       <DependentUpon>FrmPuntoVenta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ventanas\FrmTotal.resx">
+      <DependentUpon>FrmTotal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ventanas\FrmUsuario.resx">
       <DependentUpon>FrmUsuario.cs</DependentUpon>
