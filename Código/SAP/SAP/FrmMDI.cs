@@ -69,6 +69,11 @@ namespace SAP
             new FrmPuntoVenta().ShowDialog();
         }
 
+        private void TsmVentas_Click(object sender, EventArgs e)
+        {
+            this.CargarFormulario(new FrmListVentas());
+        }
+
         private void TsmCerrarSesion_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("¿Está seguro de cerrar Sesión?", "Cerrar sesión", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation) == DialogResult.OK)

@@ -39,6 +39,7 @@
             this.TsmUsuario = new System.Windows.Forms.ToolStripMenuItem();
             this.TsmCerrarSesion = new System.Windows.Forms.ToolStripMenuItem();
             this.TsmSalir = new System.Windows.Forms.ToolStripMenuItem();
+            this.TsmVentas = new System.Windows.Forms.ToolStripMenuItem();
             this.MnuMain.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -48,7 +49,8 @@
             this.TsmPuntoVenta,
             this.TsmProductos,
             this.TsmConfiguracion,
-            this.TsmUsuario});
+            this.TsmUsuario,
+            this.TsmVentas});
             this.MnuMain.Location = new System.Drawing.Point(0, 0);
             this.MnuMain.Name = "MnuMain";
             this.MnuMain.Size = new System.Drawing.Size(800, 24);
@@ -120,16 +122,23 @@
             // TsmCerrarSesion
             // 
             this.TsmCerrarSesion.Name = "TsmCerrarSesion";
-            this.TsmCerrarSesion.Size = new System.Drawing.Size(180, 22);
+            this.TsmCerrarSesion.Size = new System.Drawing.Size(143, 22);
             this.TsmCerrarSesion.Text = "Cerrar Sesión";
             this.TsmCerrarSesion.Click += new System.EventHandler(this.TsmCerrarSesion_Click);
             // 
             // TsmSalir
             // 
             this.TsmSalir.Name = "TsmSalir";
-            this.TsmSalir.Size = new System.Drawing.Size(180, 22);
+            this.TsmSalir.Size = new System.Drawing.Size(143, 22);
             this.TsmSalir.Text = "Salir";
             this.TsmSalir.Click += new System.EventHandler(this.TsmSalir_Click);
+            // 
+            // TsmVentas
+            // 
+            this.TsmVentas.Name = "TsmVentas";
+            this.TsmVentas.Size = new System.Drawing.Size(53, 20);
+            this.TsmVentas.Text = "Ventas";
+            this.TsmVentas.Click += new System.EventHandler(this.TsmVentas_Click);
             // 
             // FrmMDI
             // 
@@ -164,5 +173,6 @@
         private System.Windows.Forms.ToolStripMenuItem TsmCatalogoProductos;
         private System.Windows.Forms.ToolStripMenuItem TsmCompras;
         private System.Windows.Forms.ToolStripMenuItem TsmPuntoVenta;
+        private System.Windows.Forms.ToolStripMenuItem TsmVentas;
     }
 }
