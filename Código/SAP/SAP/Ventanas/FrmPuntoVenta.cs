@@ -190,8 +190,12 @@ namespace SAP.Ventanas
 
         }
 
-        private void LimpiarCompra()
+        private void LimpiarVenta()
         {
+            TotalVenta = 0;
+            CantidadProductos = 0;
+            DtgvProductos.Rows.Clear();
+            LimpiarProductoActual();
           
         }
 
@@ -238,7 +242,7 @@ namespace SAP.Ventanas
             }
             else if (e.KeyCode == Keys.F4)
             {
-                LimpiarCompra();
+                LimpiarVenta();
             }
             else if (e.KeyCode == Keys.F5 && !PnlBusqueda.Visible)
             {
@@ -267,7 +271,7 @@ namespace SAP.Ventanas
 
         private void BtnLimpCom_Click(object sender, EventArgs e)
         {
-            LimpiarCompra();
+            LimpiarVenta();
         }
 
         private void BtnElimProducto_Click(object sender, EventArgs e)

@@ -116,10 +116,16 @@
     <Compile Include="Ventanas\FrmListUsuarios.Designer.cs">
       <DependentUpon>FrmListUsuarios.cs</DependentUpon>
     </Compile>
+    <Compile Include="Ventanas\FrmListVentas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ventanas\FrmListVentas.Designer.cs">
+      <DependentUpon>FrmListVentas.cs</DependentUpon>
+    </Compile>
     <Compile Include="Ventanas\FrmProducto.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Ventanas\FrmProducto.Designer.cs">
+    <Compile Include="Ventanas\FrmProducto.designer.cs">
       <DependentUpon>FrmProducto.cs</DependentUpon>
     </Compile>
     <Compile Include="Ventanas\FrmPuntoVenta.cs">
@@ -166,6 +172,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Ventanas\FrmListUsuarios.resx">
       <DependentUpon>FrmListUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ventanas\FrmListVentas.resx">
+      <DependentUpon>FrmListVentas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ventanas\FrmProducto.resx">
       <DependentUpon>FrmProducto.cs</DependentUpon>
