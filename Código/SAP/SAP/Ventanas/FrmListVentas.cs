@@ -53,11 +53,10 @@ namespace SAP.Ventanas
             DtgvListado.AllowUserToAddRows = false;
             DtgvListado.AutoGenerateColumns = false;
 
-            DtgvListado.AgregarColumna("ID", "NumeroVenta", typeof(long), autoSizeColumnMode: DataGridViewAutoSizeColumnMode.Fill);
-            DtgvListado.AgregarColumna("Folio", "Folio", typeof(string), autoSizeColumnMode: DataGridViewAutoSizeColumnMode.Fill);
+            DtgvListado.AgregarColumna("ID", "Número de Venta", typeof(long), autoSizeColumnMode: DataGridViewAutoSizeColumnMode.Fill);
             DtgvListado.AgregarColumna("Fecha", "Fecha", typeof(string), autoSizeColumnMode: DataGridViewAutoSizeColumnMode.Fill);
             DtgvListado.AgregarColumna("Total", "Total", typeof(string), autoSizeColumnMode: DataGridViewAutoSizeColumnMode.Fill);
-            DtgvListado.AgregarColumna("Fecha de cancelación ", "Fecha de cancelación", typeof(string), autoSizeColumnMode: DataGridViewAutoSizeColumnMode.Fill);
+            DtgvListado.AgregarColumna("FechaCancelacion ", "Fecha de cancelación", typeof(string), autoSizeColumnMode: DataGridViewAutoSizeColumnMode.Fill);
             DtgvListado.AgregarColumna("Estado ", "Estado", typeof(string), autoSizeColumnMode: DataGridViewAutoSizeColumnMode.Fill);
 
         }
@@ -79,7 +78,7 @@ namespace SAP.Ventanas
         private void BtnCancelar_Click(object sender, EventArgs e)
         {
             if (DtgvListado.SelectedRows.Count != 1) return;
-            if (DtgvListado.SelectedRows[0].Cells[5].Value.ToString() == "Cancelado") return;
+            if (DtgvListado.SelectedRows[0].Cells[4].Value.ToString() == "Cancelado") return;
             if (MessageBox.Show("¿Está seguro de Cancelar esta Venta?", "Cancelar", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation) == DialogResult.OK)
             {
                 if (!Venta.Cancelar(_modelo[DtgvListado.SelectedRows[0].Index].Id))
@@ -99,7 +98,7 @@ namespace SAP.Ventanas
             _consultar();
         }
 
-        private void BtnBuscar_KeyPress(object sender, KeyPressEventArgs e)
+        private void TxtBuscar_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == '\r')
             {

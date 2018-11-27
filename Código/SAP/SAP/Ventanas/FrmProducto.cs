@@ -20,6 +20,7 @@ namespace SAP.Ventanas
             StartPosition = FormStartPosition.CenterParent;
 
             _modelo = new Producto();
+            _modelo.Id = id;
         }
 
         private void FrmProducto_Load(object sender, EventArgs e)
