@@ -110,16 +110,15 @@ namespace SAP.Ventanas
             pCompra.Fecha = dtpFecha.Value;
             pCompra.Total= float.Parse(txttotal.Text.Trim());
 
+            pCompra.Detalles = new List<CompraDetalle>();
             CompraDetalle compraDetalle = null;
-
-            float total = 0;
+            
             for (int i = 0; i < tbldatos.RowCount; i++)
             {
                 compraDetalle = new CompraDetalle();
                 compraDetalle.IdProducto = Convert.ToInt32(tbldatos.Rows[i].Cells["ID"].Value);
                 compraDetalle.Cantidad = Convert.ToInt32(tbldatos.Rows[i].Cells["CANTIDAD"].Value);
                 compraDetalle.CostoUnidad = float.Parse(tbldatos.Rows[i].Cells["COSTO"].Value.ToString());
-                total += compraDetalle.Cantidad * compraDetalle.CostoUnidad;
                 pCompra.Detalles.Add(compraDetalle);
             }
 

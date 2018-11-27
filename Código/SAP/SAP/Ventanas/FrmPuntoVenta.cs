@@ -185,8 +185,44 @@ namespace SAP.Ventanas
             PnlBusqueda.Visible = false;
         }
 
-        private void FinalizarCompra()
+        private void FinalizarVenta()
         {
+            if(DtgvProductos.Rows.Count == 0)
+            {
+                MessageBox.Show("La Venta está vacía", "No Finalizada", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+            FrmTotal frm = new FrmTotal(TotalVenta);
+            if (frm.ShowDialog() == DialogResult.OK)
+            {
+                Venta pVenta = new Venta();
+                pVenta.Fecha = DateTime.Now;
+                pVenta.Total = TotalVenta;
+
+                pVenta.Detalles = new List<VentaDetalle>();
+                VentaDetalle ventaDetalle = null;
+                
+                for (int i = 0; i < DtgvProductos.RowCount; i++)
+                {
+                    ventaDetalle = new VentaDetalle();
+                    ventaDetalle.IdProducto = Convert.ToInt32(DtgvProductos.Rows[i].Cells["ID"].Value);
+                    ventaDetalle.Cantidad = Convert.ToInt32(DtgvProductos.Rows[i].Cells["CANTIDAD"].Value);
+                    ventaDetalle.PrecioUnidad = float.Parse(DtgvProductos.Rows[i].Cells["PRECIO"].Value.ToString());
+                    ventaDetalle.Total = ventaDetalle.Cantidad * ventaDetalle.PrecioUnidad;
+
+                    pVenta.Detalles.Add(ventaDetalle);
+                }
+
+                if (Venta.Guardar(ref pVenta))
+                {
+                    MessageBox.Show("Venta Realizada Con Exito!!", "Guardar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    
+                }
+                else
+                {
+                    MessageBox.Show("No se pudo Guardar la Venta", "Fallo!!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+            }
 
         }
 
@@ -234,7 +270,7 @@ namespace SAP.Ventanas
         {
             if (e.KeyCode == Keys.F1)
             {
-                FinalizarCompra();
+                FinalizarVenta();
             }
             else if (e.KeyCode == Keys.F4)
             {
@@ -262,7 +298,7 @@ namespace SAP.Ventanas
 
         private void BtnFinCompra_Click(object sender, EventArgs e)
         {
-            FinalizarCompra();
+            FinalizarVenta();
         }
 
         private void BtnLimpCom_Click(object sender, EventArgs e)
