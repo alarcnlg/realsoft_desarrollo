@@ -237,11 +237,25 @@ namespace SAP.Ventanas
 
         private void EliminarProducto()
         {
-
+            if (DtgvProductos.SelectedRows.Count != 1) return;
+            TotalVenta -= float.Parse(DtgvProductos.SelectedRows[0].Cells["TOTAL"].ToString());
+            CantidadProductos--;
+            DtgvProductos.Rows.RemoveAt(DtgvProductos.SelectedRows[0].Index);
+           
         }
 
         private void EditarProducto()
         {
+            if (DtgvProductos.SelectedRows.Count != 1) return;
+            DataGridViewRow row = DtgvProductos.SelectedRows[0];
+            _idProductoActivo = Convert.ToInt64(row.Cells[0].Value);
+            TxtCodigoBarras.Text = row.Cells[1].Value.ToString();
+            TxtNombre.Text = row.Cells[2].Value.ToString();
+            TxtPrecio.Text = row.Cells[3].Value.ToString();
+            TxtCantidad.Text = row.Cells[4].Value.ToString();
+
+            TxtCantidad.Focus();
+            EliminarProducto();
 
         }
 
