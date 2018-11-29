@@ -71,7 +71,6 @@ namespace SAP.BaseDeDatos
 
         public static bool Consultar(ref Venta venta)
         {
-
             try
             {
                 MySqlConnection conn = ConexionBaseDeDatos.ConseguirConexion();

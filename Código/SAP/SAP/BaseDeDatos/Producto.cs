@@ -100,6 +100,23 @@ namespace SAP.BaseDeDatos
             return true;
         }
 
+        public static bool ConsultarReporte(ref List<Producto> productos, DateTime fechaDel, DateTime fechaAl)
+        {
+            try
+            {
+                MySqlConnection conn = ConexionBaseDeDatos.ConseguirConexion();
+                ConsultaBuilder consultaBuilder = new ConsultaBuilder("productos");
+                consultaBuilder.AgregarCriterio("ESTADO='A'");
+                consultaBuilder.AgregarOrderBy("NOMBRE");
+                productos = conn.Query<Producto>(consultaBuilder.ToString()).ToList();
+            }
+            catch 
+            {
+                return false;
+            }
+            return true;
+        }
+
         public static bool AgregarInventario(long id, int cantidad)
         {
             try

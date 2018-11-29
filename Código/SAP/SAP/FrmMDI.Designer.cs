@@ -33,6 +33,11 @@
             this.TsmProductos = new System.Windows.Forms.ToolStripMenuItem();
             this.TsmCompras = new System.Windows.Forms.ToolStripMenuItem();
             this.TsmVentas = new System.Windows.Forms.ToolStripMenuItem();
+            this.TsmReportes = new System.Windows.Forms.ToolStripMenuItem();
+            this.TsmRptProductos = new System.Windows.Forms.ToolStripMenuItem();
+            this.TsmRptVentas = new System.Windows.Forms.ToolStripMenuItem();
+            this.TsmRptCompras = new System.Windows.Forms.ToolStripMenuItem();
+            this.TsmRptFacturas = new System.Windows.Forms.ToolStripMenuItem();
             this.TsmConfiguracion = new System.Windows.Forms.ToolStripMenuItem();
             this.TsmUsuarios = new System.Windows.Forms.ToolStripMenuItem();
             this.TsmBaseDeDatos = new System.Windows.Forms.ToolStripMenuItem();
@@ -49,6 +54,7 @@
             this.TsmProductos,
             this.TsmCompras,
             this.TsmVentas,
+            this.TsmReportes,
             this.TsmConfiguracion,
             this.TsmUsuario});
             this.MnuMain.Location = new System.Drawing.Point(0, 0);
@@ -84,6 +90,42 @@
             this.TsmVentas.Size = new System.Drawing.Size(53, 20);
             this.TsmVentas.Text = "Ventas";
             this.TsmVentas.Click += new System.EventHandler(this.TsmVentas_Click);
+            // 
+            // TsmReportes
+            // 
+            this.TsmReportes.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.TsmRptProductos,
+            this.TsmRptVentas,
+            this.TsmRptCompras,
+            this.TsmRptFacturas});
+            this.TsmReportes.Name = "TsmReportes";
+            this.TsmReportes.Size = new System.Drawing.Size(65, 20);
+            this.TsmReportes.Text = "Reportes";
+            // 
+            // TsmRptProductos
+            // 
+            this.TsmRptProductos.Name = "TsmRptProductos";
+            this.TsmRptProductos.Size = new System.Drawing.Size(180, 22);
+            this.TsmRptProductos.Text = "Productos";
+            // 
+            // TsmRptVentas
+            // 
+            this.TsmRptVentas.Name = "TsmRptVentas";
+            this.TsmRptVentas.Size = new System.Drawing.Size(180, 22);
+            this.TsmRptVentas.Text = "Ventas";
+            // 
+            // TsmRptCompras
+            // 
+            this.TsmRptCompras.Name = "TsmRptCompras";
+            this.TsmRptCompras.Size = new System.Drawing.Size(180, 22);
+            this.TsmRptCompras.Text = "Compras";
+            // 
+            // TsmRptFacturas
+            // 
+            this.TsmRptFacturas.Name = "TsmRptFacturas";
+            this.TsmRptFacturas.Size = new System.Drawing.Size(180, 22);
+            this.TsmRptFacturas.Text = "Facturas";
+            this.TsmRptFacturas.Click += new System.EventHandler(this.TsmRptFacturas_Click);
             // 
             // TsmConfiguracion
             // 
@@ -164,5 +206,10 @@
         private System.Windows.Forms.ToolStripMenuItem TsmPuntoVenta;
         private System.Windows.Forms.ToolStripMenuItem TsmVentas;
         private System.Windows.Forms.ToolStripMenuItem TsmCompras;
+        private System.Windows.Forms.ToolStripMenuItem TsmReportes;
+        private System.Windows.Forms.ToolStripMenuItem TsmRptProductos;
+        private System.Windows.Forms.ToolStripMenuItem TsmRptVentas;
+        private System.Windows.Forms.ToolStripMenuItem TsmRptCompras;
+        private System.Windows.Forms.ToolStripMenuItem TsmRptFacturas;
     }
 }
