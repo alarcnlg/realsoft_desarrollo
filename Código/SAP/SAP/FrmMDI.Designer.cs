@@ -31,15 +31,14 @@
             this.MnuMain = new System.Windows.Forms.MenuStrip();
             this.TsmPuntoVenta = new System.Windows.Forms.ToolStripMenuItem();
             this.TsmProductos = new System.Windows.Forms.ToolStripMenuItem();
-            this.TsmCatalogoProductos = new System.Windows.Forms.ToolStripMenuItem();
             this.TsmCompras = new System.Windows.Forms.ToolStripMenuItem();
+            this.TsmVentas = new System.Windows.Forms.ToolStripMenuItem();
             this.TsmConfiguracion = new System.Windows.Forms.ToolStripMenuItem();
             this.TsmUsuarios = new System.Windows.Forms.ToolStripMenuItem();
             this.TsmBaseDeDatos = new System.Windows.Forms.ToolStripMenuItem();
             this.TsmUsuario = new System.Windows.Forms.ToolStripMenuItem();
             this.TsmCerrarSesion = new System.Windows.Forms.ToolStripMenuItem();
             this.TsmSalir = new System.Windows.Forms.ToolStripMenuItem();
-            this.TsmVentas = new System.Windows.Forms.ToolStripMenuItem();
             this.MnuMain.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -48,9 +47,10 @@
             this.MnuMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.TsmPuntoVenta,
             this.TsmProductos,
+            this.TsmCompras,
+            this.TsmVentas,
             this.TsmConfiguracion,
-            this.TsmUsuario,
-            this.TsmVentas});
+            this.TsmUsuario});
             this.MnuMain.Location = new System.Drawing.Point(0, 0);
             this.MnuMain.Name = "MnuMain";
             this.MnuMain.Size = new System.Drawing.Size(800, 24);
@@ -66,26 +66,24 @@
             // 
             // TsmProductos
             // 
-            this.TsmProductos.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.TsmCatalogoProductos,
-            this.TsmCompras});
             this.TsmProductos.Name = "TsmProductos";
             this.TsmProductos.Size = new System.Drawing.Size(73, 20);
             this.TsmProductos.Text = "Productos";
-            // 
-            // TsmCatalogoProductos
-            // 
-            this.TsmCatalogoProductos.Name = "TsmCatalogoProductos";
-            this.TsmCatalogoProductos.Size = new System.Drawing.Size(122, 22);
-            this.TsmCatalogoProductos.Text = "Catálogo";
-            this.TsmCatalogoProductos.Click += new System.EventHandler(this.TsmCatalogoProductos_Click);
+            this.TsmProductos.Click += new System.EventHandler(this.TsmProductos_Click);
             // 
             // TsmCompras
             // 
             this.TsmCompras.Name = "TsmCompras";
-            this.TsmCompras.Size = new System.Drawing.Size(122, 22);
+            this.TsmCompras.Size = new System.Drawing.Size(67, 20);
             this.TsmCompras.Text = "Compras";
             this.TsmCompras.Click += new System.EventHandler(this.TsmCompras_Click);
+            // 
+            // TsmVentas
+            // 
+            this.TsmVentas.Name = "TsmVentas";
+            this.TsmVentas.Size = new System.Drawing.Size(53, 20);
+            this.TsmVentas.Text = "Ventas";
+            this.TsmVentas.Click += new System.EventHandler(this.TsmVentas_Click);
             // 
             // TsmConfiguracion
             // 
@@ -133,13 +131,6 @@
             this.TsmSalir.Text = "Salir";
             this.TsmSalir.Click += new System.EventHandler(this.TsmSalir_Click);
             // 
-            // TsmVentas
-            // 
-            this.TsmVentas.Name = "TsmVentas";
-            this.TsmVentas.Size = new System.Drawing.Size(53, 20);
-            this.TsmVentas.Text = "Ventas";
-            this.TsmVentas.Click += new System.EventHandler(this.TsmVentas_Click);
-            // 
             // FrmMDI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -170,9 +161,8 @@
         private System.Windows.Forms.ToolStripMenuItem TsmCerrarSesion;
         private System.Windows.Forms.ToolStripMenuItem TsmSalir;
         private System.Windows.Forms.ToolStripMenuItem TsmProductos;
-        private System.Windows.Forms.ToolStripMenuItem TsmCatalogoProductos;
-        private System.Windows.Forms.ToolStripMenuItem TsmCompras;
         private System.Windows.Forms.ToolStripMenuItem TsmPuntoVenta;
         private System.Windows.Forms.ToolStripMenuItem TsmVentas;
+        private System.Windows.Forms.ToolStripMenuItem TsmCompras;
     }
 }

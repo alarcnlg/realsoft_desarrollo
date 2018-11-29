@@ -54,7 +54,7 @@ namespace SAP
             this.CargarFormulario(new FrmConfiguracionBaseDeDatos());
         }
 
-        private void TsmCatalogoProductos_Click(object sender, EventArgs e)
+        private void TsmProductos_Click(object sender, EventArgs e)
         {
             this.CargarFormulario(new FrmListProductos());
         }

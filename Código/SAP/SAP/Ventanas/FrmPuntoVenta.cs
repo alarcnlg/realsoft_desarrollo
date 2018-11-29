@@ -17,6 +17,7 @@ namespace SAP.Ventanas
         private List<Producto> _modeloBusqueda;
         private long _idProductoActivo;
         private bool _cambioTexto;
+        private bool _busquedaActiva;
 
         private float _totalVenta;
         private float TotalVenta {
@@ -51,6 +52,8 @@ namespace SAP.Ventanas
             WindowState = FormWindowState.Maximized;
 
             _modeloBusqueda = new List<Producto>();
+
+            _busquedaActiva = true;
         }
 
         private void FrmPuntoVenta_Load(object sender, EventArgs e)
@@ -161,6 +164,7 @@ namespace SAP.Ventanas
             TotalVenta += precio * cantidad;
 
             LimpiarProductoActual();
+
         }
 
         private void LimpiarProductoActual() {
@@ -169,6 +173,8 @@ namespace SAP.Ventanas
             TxtNombre.Text = "";
             TxtPrecio.Text = "";
             TxtCantidad.Text = "";
+
+            _busquedaActiva = true;
 
             TxtCodigoBarras.Focus();
         }
@@ -216,7 +222,7 @@ namespace SAP.Ventanas
                 if (Venta.Guardar(ref pVenta))
                 {
                     MessageBox.Show("Venta Realizada Con Exito!!", "Guardar", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    
+                    LimpiarVenta();
                 }
                 else
                 {
@@ -232,21 +238,23 @@ namespace SAP.Ventanas
             CantidadProductos = 0;
             DtgvProductos.Rows.Clear();
             LimpiarProductoActual();
-          
         }
 
         private void EliminarProducto()
         {
             if (DtgvProductos.SelectedRows.Count != 1) return;
-            TotalVenta -= float.Parse(DtgvProductos.SelectedRows[0].Cells["TOTAL"].ToString());
+            float valor = 0;
+            float.TryParse(DtgvProductos.SelectedRows[0].Cells["TOTAL"].Value.ToString(), out valor);
+            TotalVenta -= valor;
             CantidadProductos--;
             DtgvProductos.Rows.RemoveAt(DtgvProductos.SelectedRows[0].Index);
-           
+
         }
 
         private void EditarProducto()
         {
             if (DtgvProductos.SelectedRows.Count != 1) return;
+            _busquedaActiva = false;
             DataGridViewRow row = DtgvProductos.SelectedRows[0];
             _idProductoActivo = Convert.ToInt64(row.Cells[0].Value);
             TxtCodigoBarras.Text = row.Cells[1].Value.ToString();
@@ -368,7 +376,7 @@ namespace SAP.Ventanas
                     }
                     else
                     {
-                        EditarProducto();
+                        //EditarProducto();
                     }
                     return;
                 }
@@ -397,19 +405,22 @@ namespace SAP.Ventanas
 
             }
 
-            if (_cambioTexto == true)
+            if (_busquedaActiva)
             {
-                TextBox txt = sender as TextBox;
-                if (txt.Text.Length <= 0)
+                if (_cambioTexto == true)
                 {
-                    PnlBusqueda.Visible = false;
+                    TextBox txt = sender as TextBox;
+                    if (txt.Text.Length <= 0)
+                    {
+                        PnlBusqueda.Visible = false;
+                    }
+                    else
+                    {
+                        PnlBusqueda.Visible = true;
+                        _consultarBusqueda();
+                    }
+                    _cambioTexto = false;
                 }
-                else
-                {
-                    PnlBusqueda.Visible = true;
-                    _consultarBusqueda();
-                }
-                _cambioTexto = false;
             }
 
         }

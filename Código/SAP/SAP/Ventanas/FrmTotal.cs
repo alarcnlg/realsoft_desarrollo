@@ -56,5 +56,10 @@ namespace SAP
             }
 
         }
+
+        private void BtnCancelar_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }

@@ -146,6 +146,12 @@
     <Compile Include="Ventanas\FrmUsuario.Designer.cs">
       <DependentUpon>FrmUsuario.cs</DependentUpon>
     </Compile>
+    <Compile Include="Ventanas\FrmVisorReporte.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ventanas\FrmVisorReporte.Designer.cs">
+      <DependentUpon>FrmVisorReporte.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Ventanas\FrmCompraProductos.resx">
       <DependentUpon>FrmCompraProductos.cs</DependentUpon>
     </EmbeddedResource>
@@ -193,6 +199,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Ventanas\FrmUsuario.resx">
       <DependentUpon>FrmUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ventanas\FrmVisorReporte.resx">
+      <DependentUpon>FrmVisorReporte.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
