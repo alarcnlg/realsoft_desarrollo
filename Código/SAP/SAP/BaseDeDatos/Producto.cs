@@ -100,7 +100,7 @@ namespace SAP.BaseDeDatos
             return true;
         }
 
-        public static bool ConsultarReporte(ref List<Producto> productos, DateTime fechaDel, DateTime fechaAl)
+        public static bool ConsultarReporte(ref List<Producto> productos)
         {
             try
             {

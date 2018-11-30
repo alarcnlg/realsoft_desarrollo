@@ -15,13 +15,20 @@ namespace SAP.Ventanas
     {
         private string _nombre;
         private Dictionary<string, object> _dataSources;
+        private Dictionary<string, object> _parametros;
 
-        public FrmVisorReporte(string nombre, Dictionary<string, object> dataSources)
+        public FrmVisorReporte(string nombre, Dictionary<string, object> dataSources, Dictionary<string, object> parametros = null)
         {
             InitializeComponent();
+            WindowState = FormWindowState.Maximized;
 
             _nombre = nombre;
             _dataSources = dataSources;
+
+            if (parametros == null) {
+                parametros = new Dictionary<string, object>();
+            }
+            _parametros = parametros;
         }
 
         private void FrmVisorReporte_Load(object sender, EventArgs e)
@@ -35,9 +42,19 @@ namespace SAP.Ventanas
 
                 RptViewer.LocalReport.ReportEmbeddedResource = $"SAP.Reportes.{_nombre}.rdlc";
 
-                for (int i = 0; i < _dataSources.Count; i++)
+                foreach (var key in _dataSources.Keys)
                 {
-                    RptViewer.LocalReport.DataSources.Add(new ReportDataSource(_dataSources["CLAVE"].ToString(), _dataSources["DATOS"]));
+                    RptViewer.LocalReport.DataSources.Add(new ReportDataSource(key, _dataSources[key]));
+                }
+
+                if (_parametros.Count > 0) {
+                    List<ReportParameter> parametros = new List<ReportParameter>();
+
+                    foreach (var key in _parametros.Keys)
+                    {
+                        parametros.Add(new ReportParameter(key, _parametros[key].ToString()));
+                    }
+                    RptViewer.LocalReport.SetParameters(parametros);
                 }
 
                 RptViewer.RefreshReport();

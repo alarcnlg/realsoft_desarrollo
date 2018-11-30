@@ -28,16 +28,24 @@ namespace SAP.Ventanas
         {
             List<Factura> _datos = new List<Factura>();
             Dictionary<string, object> dataSources = new Dictionary<string, object>();
+            Dictionary<string, object> parametros = new Dictionary<string, object>();
 
             if (!Factura.ConsultarReporte(ref _datos, DtpDel.Value, DtpAl.Value)) {
                 MessageBox.Show("Error al consultar datos para el Reporte","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
                 return;
             }
+            if (_datos.Count == 0)
+            {
+                MessageBox.Show("No existen datos para el Reporte", "Sin Datos", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
 
-            dataSources.Add("CLAVE", "DtsFacturas");
-            dataSources.Add("DATOS", _datos);
+            dataSources.Add("DtsFacturas", _datos);
 
-            new FrmVisorReporte("RptFacturas", dataSources).ShowDialog();
+            parametros.Add("FechaDel", DtpDel.Value.ToString());
+            parametros.Add("FechaAl", DtpAl.Value.ToString());
+
+            new FrmVisorReporte("RptFacturas", dataSources, parametros).ShowDialog();
         }
     }
 }

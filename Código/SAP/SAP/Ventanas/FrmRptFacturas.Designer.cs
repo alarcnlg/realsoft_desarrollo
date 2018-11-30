@@ -59,7 +59,7 @@
             this.DtpDel.Location = new System.Drawing.Point(50, 12);
             this.DtpDel.Name = "DtpDel";
             this.DtpDel.Size = new System.Drawing.Size(81, 20);
-            this.DtpDel.TabIndex = 0;
+            this.DtpDel.TabIndex = 1;
             // 
             // BtnGenerar
             // 

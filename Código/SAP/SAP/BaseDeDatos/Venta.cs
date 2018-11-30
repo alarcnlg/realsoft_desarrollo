@@ -127,5 +127,22 @@ namespace SAP.BaseDeDatos
             return true;
         }
 
+        public static bool ConsultarReporte(ref List<Venta> ventas, DateTime fechaDel, DateTime fechaAl)
+        {
+            try
+            {
+                MySqlConnection conn = ConexionBaseDeDatos.ConseguirConexion();
+                ConsultaBuilder consultaBuilder = new ConsultaBuilder("ventas");
+                consultaBuilder.AgregarCriterio("FECHA BETWEEN @FECHADEL AND @FECHAAL");
+
+                ventas = conn.Query<Venta>(consultaBuilder.ToString(), new { FECHADEL = fechaDel.ToShortDateString(), FECHAAL = fechaAl.ToShortDateString() }).ToList();
+            }
+            catch
+            {
+                return false;
+            }
+            return true;
+        }
+
     }
 }
