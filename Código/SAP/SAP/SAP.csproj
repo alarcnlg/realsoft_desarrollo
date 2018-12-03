@@ -84,6 +84,12 @@
     <Compile Include="Clases\ArchivoConfiguracion.cs" />
     <Compile Include="Clases\MetodosExtension.cs" />
     <Compile Include="SqlServerTypes\Loader.cs" />
+    <Compile Include="Ventanas\FrmRptCompras.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ventanas\FrmRptCompras.Designer.cs">
+      <DependentUpon>FrmRptCompras.cs</DependentUpon>
+    </Compile>
     <Compile Include="Ventanas\FrmRptFacturas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -178,6 +184,7 @@
     <Compile Include="Ventanas\FrmVisorReporte.Designer.cs">
       <DependentUpon>FrmVisorReporte.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Reportes\RptCompras.rdlc" />
     <EmbeddedResource Include="Reportes\RptFacturas.rdlc" />
     <EmbeddedResource Include="Ventanas\FrmCompraProductos.resx">
       <DependentUpon>FrmCompraProductos.cs</DependentUpon>
@@ -220,6 +227,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Ventanas\FrmPuntoVenta.resx">
       <DependentUpon>FrmPuntoVenta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ventanas\FrmRptCompras.resx">
+      <DependentUpon>FrmRptCompras.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ventanas\FrmRptFacturas.resx">
       <DependentUpon>FrmRptFacturas.cs</DependentUpon>

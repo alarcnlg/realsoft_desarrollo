@@ -79,6 +79,11 @@ namespace SAP
             this.CargarFormulario(new FrmRptFacturas());
         }
 
+        private void TsmRptCompras_Click(object sender, EventArgs e)
+        {
+            this.CargarFormulario(new FrmRptCompras());
+        }
+
         private void TsmCerrarSesion_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("¿Está seguro de cerrar Sesión?", "Cerrar sesión", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation) == DialogResult.OK)
