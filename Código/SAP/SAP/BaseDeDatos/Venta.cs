@@ -133,7 +133,7 @@ namespace SAP.BaseDeDatos
             {
                 MySqlConnection conn = ConexionBaseDeDatos.ConseguirConexion();
                 ConsultaBuilder consultaBuilder = new ConsultaBuilder("ventas");
-                consultaBuilder.AgregarCriterio("FECHA BETWEEN @FECHADEL AND @FECHAAL");
+                consultaBuilder.AgregarCriterio($"FECHA BETWEEN '{fechaDel.ToString("yyyy-MM-dd")}' AND '{fechaAl.ToString("yyyy-MM-dd")}'");
 
                 ventas = conn.Query<Venta>(consultaBuilder.ToString(), new { FECHADEL = fechaDel.ToShortDateString(), FECHAAL = fechaAl.ToShortDateString() }).ToList();
             }

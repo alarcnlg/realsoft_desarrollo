@@ -97,9 +97,10 @@
             this.Controls.Add(this.TxtBuscar);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.DtgvListado);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MinimizeBox = false;
             this.Name = "FrmListVentas";
-            this.Text = "FrmListVentas";
+            this.Text = "Listado de Ventas";
             this.Load += new System.EventHandler(this.FrmListVentas_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DtgvListado)).EndInit();
             this.ResumeLayout(false);

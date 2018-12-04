@@ -114,6 +114,7 @@
             this.TsmRptVentas.Name = "TsmRptVentas";
             this.TsmRptVentas.Size = new System.Drawing.Size(180, 22);
             this.TsmRptVentas.Text = "Ventas";
+            this.TsmRptVentas.Click += new System.EventHandler(this.TsmRptVentas_Click);
             // 
             // TsmRptCompras
             // 

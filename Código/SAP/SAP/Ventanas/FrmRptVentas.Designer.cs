@@ -89,8 +89,11 @@
             this.Controls.Add(this.DtpDel);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FrmRptVentas";
-            this.Text = "FrmRptVentas";
+            this.Text = "Reporte de Ventas";
             this.Load += new System.EventHandler(this.FrmRptVentas_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
