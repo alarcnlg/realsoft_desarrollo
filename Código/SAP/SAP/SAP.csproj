@@ -95,9 +95,8 @@
     </Compile>
     <Compile Include="Ventanas\FrmRptProductos.Designer.cs">
       <DependentUpon>FrmRptProductos.cs</DependentUpon>
-    <Compile Include="Ventanas\FrmRptVentas.cs">
-      <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Ventanas\FrmRptVentas.cs" />
     <Compile Include="Ventanas\FrmRptVentas.Designer.cs">
       <DependentUpon>FrmRptVentas.cs</DependentUpon>
     </Compile>
@@ -238,6 +237,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Ventanas\FrmRptProductos.resx">
       <DependentUpon>FrmRptProductos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Ventanas\FrmRptVentas.resx">
       <DependentUpon>FrmRptVentas.cs</DependentUpon>
     </EmbeddedResource>
