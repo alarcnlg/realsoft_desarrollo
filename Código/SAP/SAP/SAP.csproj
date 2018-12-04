@@ -101,6 +101,11 @@
     </Compile>
     <Compile Include="Ventanas\FrmRptProductos.Designer.cs">
       <DependentUpon>FrmRptProductos.cs</DependentUpon>
+    <Compile Include="Ventanas\FrmRptVentas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ventanas\FrmRptVentas.Designer.cs">
+      <DependentUpon>FrmRptVentas.cs</DependentUpon>
     </Compile>
     <Compile Include="Ventanas\FrmTotal.cs">
       <SubType>Form</SubType>
@@ -190,6 +195,7 @@
     <Compile Include="Ventanas\FrmVisorReporte.Designer.cs">
       <DependentUpon>FrmVisorReporte.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Reportes\RptVentas.rdlc" />
     <EmbeddedResource Include="Reportes\RptCompras.rdlc" />
     <EmbeddedResource Include="Reportes\RptFacturas.rdlc" />
     <EmbeddedResource Include="Reportes\RptProductos.rdlc" />
@@ -243,6 +249,8 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Ventanas\FrmRptProductos.resx">
       <DependentUpon>FrmRptProductos.cs</DependentUpon>
+    <EmbeddedResource Include="Ventanas\FrmRptVentas.resx">
+      <DependentUpon>FrmRptVentas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ventanas\FrmTotal.resx">
       <DependentUpon>FrmTotal.cs</DependentUpon>

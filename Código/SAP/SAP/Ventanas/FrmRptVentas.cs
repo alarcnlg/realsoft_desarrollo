@@ -11,27 +11,28 @@ using System.Windows.Forms;
 
 namespace SAP.Ventanas
 {
-    public partial class FrmRptFacturas : Form
+    public partial class FrmRptVentas : Form
     {
-        public FrmRptFacturas()
+        public FrmRptVentas()
         {
             InitializeComponent();
             StartPosition = FormStartPosition.CenterParent;
         }
 
-        private void FrmRptFacturas_Load(object sender, EventArgs e)
+        private void FrmRptVentas_Load(object sender, EventArgs e)
         {
 
         }
 
         private void BtnGenerar_Click(object sender, EventArgs e)
         {
-            List<Factura> _datos = new List<Factura>();
+            List<Venta> _datos = new List<Venta>();
             Dictionary<string, object> dataSources = new Dictionary<string, object>();
             Dictionary<string, object> parametros = new Dictionary<string, object>();
 
-            if (!Factura.ConsultarReporte(ref _datos, DtpDel.Value, DtpAl.Value)) {
-                MessageBox.Show("Error al consultar datos para el Reporte","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
+            if (Venta.ConsultarReporte(ref _datos, DtpDel.Value, DtpAl.Value))
+            {
+                MessageBox.Show("Error al consultar datos para el Reporte", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             if (_datos.Count == 0)
@@ -40,32 +41,14 @@ namespace SAP.Ventanas
                 return;
             }
 
-            dataSources.Add("DtsFacturas", _datos);
+            dataSources.Add("DtsVentas", _datos);
 
             parametros.Add("FechaDel", DtpDel.Value.ToString());
             parametros.Add("FechaAl", DtpAl.Value.ToString());
 
-            new FrmVisorReporte("RptFacturas", dataSources, parametros).ShowDialog();
-        }
+            new FrmVisorReporte("RptVentas", dataSources, parametros).ShowDialog();
+        
 
-        private void DtpAl_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void DtpDel_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
+    }
     }
 }
