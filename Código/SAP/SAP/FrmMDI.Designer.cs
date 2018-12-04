@@ -120,7 +120,6 @@
             this.TsmRptCompras.Name = "TsmRptCompras";
             this.TsmRptCompras.Size = new System.Drawing.Size(180, 22);
             this.TsmRptCompras.Text = "Compras";
-            this.TsmRptCompras.Click += new System.EventHandler(this.TsmRptCompras_Click);
             // 
             // TsmRptFacturas
             // 
