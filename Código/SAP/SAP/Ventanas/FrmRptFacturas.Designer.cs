@@ -43,7 +43,6 @@
             this.label1.Size = new System.Drawing.Size(26, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Del:";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
@@ -53,7 +52,6 @@
             this.label2.Size = new System.Drawing.Size(19, 13);
             this.label2.TabIndex = 1;
             this.label2.Text = "Al:";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // DtpDel
             // 
@@ -62,7 +60,6 @@
             this.DtpDel.Name = "DtpDel";
             this.DtpDel.Size = new System.Drawing.Size(81, 20);
             this.DtpDel.TabIndex = 1;
-            this.DtpDel.ValueChanged += new System.EventHandler(this.DtpDel_ValueChanged);
             // 
             // BtnGenerar
             // 
@@ -81,7 +78,6 @@
             this.DtpAl.Name = "DtpAl";
             this.DtpAl.Size = new System.Drawing.Size(81, 20);
             this.DtpAl.TabIndex = 1;
-            this.DtpAl.ValueChanged += new System.EventHandler(this.DtpAl_ValueChanged);
             // 
             // FrmRptFacturas
             // 

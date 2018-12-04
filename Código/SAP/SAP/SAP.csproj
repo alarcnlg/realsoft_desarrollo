@@ -195,7 +195,6 @@
     <Compile Include="Ventanas\FrmVisorReporte.Designer.cs">
       <DependentUpon>FrmVisorReporte.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Reportes\RptVentas.rdlc" />
     <EmbeddedResource Include="Reportes\RptCompras.rdlc" />
     <EmbeddedResource Include="Reportes\RptFacturas.rdlc" />
     <EmbeddedResource Include="Reportes\RptProductos.rdlc" />
