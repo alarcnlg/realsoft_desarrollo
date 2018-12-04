@@ -259,6 +259,9 @@
                         <Border>
                           <Style>None</Style>
                         </Border>
+                        <BottomBorder>
+                          <Style>Solid</Style>
+                        </BottomBorder>
                         <BackgroundColor>White</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
@@ -292,6 +295,9 @@
                         <Border>
                           <Style>None</Style>
                         </Border>
+                        <BottomBorder>
+                          <Style>Solid</Style>
+                        </BottomBorder>
                         <BackgroundColor>White</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
@@ -325,6 +331,9 @@
                         <Border>
                           <Style>None</Style>
                         </Border>
+                        <BottomBorder>
+                          <Style>Solid</Style>
+                        </BottomBorder>
                         <BackgroundColor>White</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
@@ -358,6 +367,9 @@
                         <Border>
                           <Style>None</Style>
                         </Border>
+                        <BottomBorder>
+                          <Style>Solid</Style>
+                        </BottomBorder>
                         <BackgroundColor>White</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
@@ -391,6 +403,9 @@
                         <Border>
                           <Style>None</Style>
                         </Border>
+                        <BottomBorder>
+                          <Style>Solid</Style>
+                        </BottomBorder>
                         <BackgroundColor>White</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
