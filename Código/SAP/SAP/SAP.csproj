@@ -96,6 +96,12 @@
     <Compile Include="Ventanas\FrmRptFacturas.Designer.cs">
       <DependentUpon>FrmRptFacturas.cs</DependentUpon>
     </Compile>
+    <Compile Include="Ventanas\FrmRptProductos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ventanas\FrmRptProductos.Designer.cs">
+      <DependentUpon>FrmRptProductos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Ventanas\FrmTotal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -186,6 +192,7 @@
     </Compile>
     <EmbeddedResource Include="Reportes\RptCompras.rdlc" />
     <EmbeddedResource Include="Reportes\RptFacturas.rdlc" />
+    <EmbeddedResource Include="Reportes\RptProductos.rdlc" />
     <EmbeddedResource Include="Ventanas\FrmCompraProductos.resx">
       <DependentUpon>FrmCompraProductos.cs</DependentUpon>
     </EmbeddedResource>
@@ -233,6 +240,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Ventanas\FrmRptFacturas.resx">
       <DependentUpon>FrmRptFacturas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ventanas\FrmRptProductos.resx">
+      <DependentUpon>FrmRptProductos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ventanas\FrmTotal.resx">
       <DependentUpon>FrmTotal.cs</DependentUpon>
