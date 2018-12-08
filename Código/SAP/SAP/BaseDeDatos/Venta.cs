@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 namespace SAP.BaseDeDatos
 {
     [Table("ventas")]
-    class Venta
+    public class Venta
     {
         public long Id { get; set; }
         public DateTime Fecha { get; set; }
@@ -76,19 +76,21 @@ namespace SAP.BaseDeDatos
                 MySqlConnection conn = ConexionBaseDeDatos.ConseguirConexion();
 
                 ConsultaBuilder consultaBuilder = new ConsultaBuilder("ventas v");
-                consultaBuilder.AgregarCampo("v.*, d.*");
+                consultaBuilder.AgregarCampo("v.*, d.*, p.ID, p.NOMBRE");
                 consultaBuilder.AgregarJoin("INNER JOIN ventadetalles d ON d.IDVENTA = v.ID");
+                consultaBuilder.AgregarJoin("INNER JOIN productos p ON p.ID = d.IDPRODUCTO");
                 consultaBuilder.AgregarCriterio("v.ID=@ID");
 
                 Venta ventaConsulta = null;
 
-                venta = conn.Query<Venta, VentaDetalle, Venta>(consultaBuilder.ToString(),
-                    (ventasel, detalle) => {
+                venta = conn.Query<Venta, VentaDetalle, Producto, Venta>(consultaBuilder.ToString(),
+                    (ventasel, detalle, Producto) => {
                         if (ventaConsulta == null)
                         {
                             ventaConsulta = ventasel;
                             ventaConsulta.Detalles = new List<VentaDetalle>();
                         }
+                        detalle.Producto = Producto;
                         ventaConsulta.Detalles.Add(detalle);
                         return ventaConsulta;
                     }, new { ID = venta.Id }).FirstOrDefault();

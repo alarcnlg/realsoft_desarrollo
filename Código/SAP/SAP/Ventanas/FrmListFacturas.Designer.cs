@@ -1,6 +1,6 @@
 ﻿namespace SAP.Ventanas
 {
-    partial class FrmListVentas
+    partial class FrmListFacturas
     {
         /// <summary>
         /// Required designer variable.
@@ -28,23 +28,25 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.BtnAceptar = new System.Windows.Forms.Button();
+            this.BtnGenerar = new System.Windows.Forms.Button();
             this.BtnBuscar = new System.Windows.Forms.Button();
             this.TxtBuscar = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.DtgvListado = new System.Windows.Forms.DataGridView();
+            this.BtnGuardarPDF = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DtgvListado)).BeginInit();
             this.SuspendLayout();
             // 
-            // BtnAceptar
+            // BtnGenerar
             // 
-            this.BtnAceptar.Location = new System.Drawing.Point(579, 342);
-            this.BtnAceptar.Name = "BtnAceptar";
-            this.BtnAceptar.Size = new System.Drawing.Size(75, 23);
-            this.BtnAceptar.TabIndex = 27;
-            this.BtnAceptar.Text = "Cancelar";
-            this.BtnAceptar.UseVisualStyleBackColor = true;
-            this.BtnAceptar.Click += new System.EventHandler(this.BtnAceptar_Click);
+            this.BtnGenerar.Location = new System.Drawing.Point(12, 342);
+            this.BtnGenerar.Name = "BtnGenerar";
+            this.BtnGenerar.Size = new System.Drawing.Size(75, 23);
+            this.BtnGenerar.TabIndex = 32;
+            this.BtnGenerar.Text = "Generar";
+            this.BtnGenerar.UseVisualStyleBackColor = true;
+            this.BtnGenerar.Click += new System.EventHandler(this.BtnGenerar_Click);
             // 
             // BtnBuscar
             // 
@@ -52,10 +54,9 @@
             this.BtnBuscar.Location = new System.Drawing.Point(579, 20);
             this.BtnBuscar.Name = "BtnBuscar";
             this.BtnBuscar.Size = new System.Drawing.Size(75, 23);
-            this.BtnBuscar.TabIndex = 26;
+            this.BtnBuscar.TabIndex = 31;
             this.BtnBuscar.Text = "Buscar";
             this.BtnBuscar.UseVisualStyleBackColor = true;
-            this.BtnBuscar.Click += new System.EventHandler(this.BtnBuscar_Click);
             // 
             // TxtBuscar
             // 
@@ -64,8 +65,7 @@
             this.TxtBuscar.Location = new System.Drawing.Point(79, 20);
             this.TxtBuscar.Name = "TxtBuscar";
             this.TxtBuscar.Size = new System.Drawing.Size(494, 20);
-            this.TxtBuscar.TabIndex = 25;
-            this.TxtBuscar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtBuscar_KeyPress);
+            this.TxtBuscar.TabIndex = 30;
             // 
             // label1
             // 
@@ -73,7 +73,7 @@
             this.label1.Location = new System.Drawing.Point(12, 23);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(61, 13);
-            this.label1.TabIndex = 24;
+            this.label1.TabIndex = 29;
             this.label1.Text = "Buscar por:";
             // 
             // DtgvListado
@@ -85,23 +85,43 @@
             this.DtgvListado.Location = new System.Drawing.Point(12, 48);
             this.DtgvListado.Name = "DtgvListado";
             this.DtgvListado.Size = new System.Drawing.Size(642, 288);
-            this.DtgvListado.TabIndex = 23;
+            this.DtgvListado.TabIndex = 28;
             // 
-            // FrmListVentas
+            // BtnGuardarPDF
+            // 
+            this.BtnGuardarPDF.Location = new System.Drawing.Point(545, 342);
+            this.BtnGuardarPDF.Name = "BtnGuardarPDF";
+            this.BtnGuardarPDF.Size = new System.Drawing.Size(109, 23);
+            this.BtnGuardarPDF.TabIndex = 33;
+            this.BtnGuardarPDF.Text = "Guardar PDF";
+            this.BtnGuardarPDF.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(430, 342);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(109, 23);
+            this.button1.TabIndex = 34;
+            this.button1.Text = "Guardar XML";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // FrmListFacturas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(679, 389);
-            this.Controls.Add(this.BtnAceptar);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.BtnGuardarPDF);
+            this.Controls.Add(this.BtnGenerar);
             this.Controls.Add(this.BtnBuscar);
             this.Controls.Add(this.TxtBuscar);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.DtgvListado);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MinimizeBox = false;
-            this.Name = "FrmListVentas";
-            this.Text = "Listado de Ventas";
-            this.Load += new System.EventHandler(this.FrmListVentas_Load);
+            this.Name = "FrmListFacturas";
+            this.Text = "Listado de Facturas";
+            this.Load += new System.EventHandler(this.FrmListFacturas_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DtgvListado)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -110,10 +130,12 @@
 
         #endregion
 
-        private System.Windows.Forms.Button BtnAceptar;
+        private System.Windows.Forms.Button BtnGenerar;
         private System.Windows.Forms.Button BtnBuscar;
         private System.Windows.Forms.TextBox TxtBuscar;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView DtgvListado;
+        private System.Windows.Forms.Button BtnGuardarPDF;
+        private System.Windows.Forms.Button button1;
     }
 }

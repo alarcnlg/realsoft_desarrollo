@@ -61,6 +61,9 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -83,7 +86,29 @@
     <Compile Include="BaseDeDatos\VentaDetalle.cs" />
     <Compile Include="Clases\ArchivoConfiguracion.cs" />
     <Compile Include="Clases\MetodosExtension.cs" />
+    <Compile Include="Connected Services\WsEmisionTimbrado33\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Facturacion\DatosCFDI.cs" />
+    <Compile Include="Facturacion\CFDI.cs" />
+    <Compile Include="Facturacion\opensslkey.cs" />
+    <Compile Include="Facturacion\SelloDigital.cs" />
+    <Compile Include="Facturacion\StringWriterWithEncoding.cs" />
     <Compile Include="SqlServerTypes\Loader.cs" />
+    <Compile Include="Ventanas\FrmFacturacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ventanas\FrmFacturacion.Designer.cs">
+      <DependentUpon>FrmFacturacion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ventanas\FrmListFacturas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ventanas\FrmListFacturas.Designer.cs">
+      <DependentUpon>FrmListFacturas.cs</DependentUpon>
+    </Compile>
     <Compile Include="Ventanas\FrmRptCompras.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -224,8 +249,14 @@
     <EmbeddedResource Include="Ventanas\FrmConfiguracionBaseDeDatos.resx">
       <DependentUpon>FrmConfiguracionBaseDeDatos.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Ventanas\FrmFacturacion.resx">
+      <DependentUpon>FrmFacturacion.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Ventanas\FrmListCompras.resx">
       <DependentUpon>FrmListCompras.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ventanas\FrmListFacturas.resx">
+      <DependentUpon>FrmListFacturas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ventanas\FrmListProductos.resx">
       <DependentUpon>FrmListProductos.cs</DependentUpon>
@@ -263,6 +294,19 @@
     <EmbeddedResource Include="Ventanas\FrmVisorReporte.resx">
       <DependentUpon>FrmVisorReporte.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="Connected Services\WsEmisionTimbrado33\SAP.WsEmisionTimbrado33.CodigoConfirmacionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WsEmisionTimbrado33\SAP.WsEmisionTimbrado33.EmitirTimbrarResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WsEmisionTimbrado33\SAP.WsEmisionTimbrado33.wsResponseBO.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WsEmisionTimbrado33\WsEmisionTimbrado33.wsdl" />
+    <None Include="Connected Services\WsEmisionTimbrado33\WsEmisionTimbrado33.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\SAP.BaseDeDatos.Compra.datasource" />
     <None Include="Properties\DataSources\SAP.BaseDeDatos.CompraDetalle.datasource" />
@@ -288,6 +332,12 @@
     <Folder Include="Data\" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Connected Services\WsEmisionTimbrado33\configuration91.svcinfo" />
+    <None Include="Connected Services\WsEmisionTimbrado33\configuration.svcinfo" />
+    <None Include="Connected Services\WsEmisionTimbrado33\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <Content Include="Desarrollo\DefinicionBaseDeDatos.sql" />
     <Content Include="Desarrollo\Pendientes.txt" />
     <Content Include="SqlServerTypes\readme.htm" />
@@ -303,6 +353,12 @@
     <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\WsEmisionTimbrado33\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
