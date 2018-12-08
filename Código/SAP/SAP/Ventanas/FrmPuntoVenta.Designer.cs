@@ -52,6 +52,7 @@
             this.DtgvListadoBusqueda = new System.Windows.Forms.DataGridView();
             this.LblCantidadProductos = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.BtnFacturar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DtgvProductos)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PbLogo)).BeginInit();
@@ -62,7 +63,8 @@
             // LblNombreEmpresa
             // 
             this.LblNombreEmpresa.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblNombreEmpresa.Location = new System.Drawing.Point(190, 12);
+            this.LblNombreEmpresa.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.LblNombreEmpresa.Location = new System.Drawing.Point(231, 12);
             this.LblNombreEmpresa.Name = "LblNombreEmpresa";
             this.LblNombreEmpresa.Size = new System.Drawing.Size(452, 115);
             this.LblNombreEmpresa.TabIndex = 1;
@@ -122,6 +124,9 @@
             // BtnLimpiar
             // 
             this.BtnLimpiar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.BtnLimpiar.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlDark;
+            this.BtnLimpiar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue;
+            this.BtnLimpiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnLimpiar.Location = new System.Drawing.Point(862, 12);
             this.BtnLimpiar.Name = "BtnLimpiar";
             this.BtnLimpiar.Size = new System.Drawing.Size(92, 23);
@@ -133,6 +138,9 @@
             // BtnAgregar
             // 
             this.BtnAgregar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.BtnAgregar.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlDark;
+            this.BtnAgregar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue;
+            this.BtnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnAgregar.Location = new System.Drawing.Point(764, 12);
             this.BtnAgregar.Name = "BtnAgregar";
             this.BtnAgregar.Size = new System.Drawing.Size(92, 23);
@@ -202,9 +210,11 @@
             // PbLogo
             // 
             this.PbLogo.BackColor = System.Drawing.Color.White;
+            this.PbLogo.Image = global::SAP.Properties.Resources.logoSAP;
             this.PbLogo.Location = new System.Drawing.Point(39, 12);
             this.PbLogo.Name = "PbLogo";
-            this.PbLogo.Size = new System.Drawing.Size(145, 115);
+            this.PbLogo.Size = new System.Drawing.Size(186, 124);
+            this.PbLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.PbLogo.TabIndex = 6;
             this.PbLogo.TabStop = false;
             // 
@@ -212,6 +222,7 @@
             // 
             this.LblTotal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.LblTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblTotal.ForeColor = System.Drawing.Color.DodgerBlue;
             this.LblTotal.Location = new System.Drawing.Point(734, 39);
             this.LblTotal.Name = "LblTotal";
             this.LblTotal.Size = new System.Drawing.Size(274, 68);
@@ -221,7 +232,10 @@
             // 
             // BtnFinCompra
             // 
-            this.BtnFinCompra.Location = new System.Drawing.Point(39, 198);
+            this.BtnFinCompra.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlDark;
+            this.BtnFinCompra.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue;
+            this.BtnFinCompra.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnFinCompra.Location = new System.Drawing.Point(39, 199);
             this.BtnFinCompra.Name = "BtnFinCompra";
             this.BtnFinCompra.Size = new System.Drawing.Size(123, 24);
             this.BtnFinCompra.TabIndex = 8;
@@ -231,6 +245,9 @@
             // 
             // BtnLimpCom
             // 
+            this.BtnLimpCom.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlDark;
+            this.BtnLimpCom.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue;
+            this.BtnLimpCom.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnLimpCom.Location = new System.Drawing.Point(168, 199);
             this.BtnLimpCom.Name = "BtnLimpCom";
             this.BtnLimpCom.Size = new System.Drawing.Size(123, 24);
@@ -241,6 +258,9 @@
             // 
             // BtnEditProducto
             // 
+            this.BtnEditProducto.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlDark;
+            this.BtnEditProducto.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue;
+            this.BtnEditProducto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnEditProducto.Location = new System.Drawing.Point(426, 200);
             this.BtnEditProducto.Name = "BtnEditProducto";
             this.BtnEditProducto.Size = new System.Drawing.Size(123, 23);
@@ -251,6 +271,9 @@
             // 
             // BtnElimProducto
             // 
+            this.BtnElimProducto.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlDark;
+            this.BtnElimProducto.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue;
+            this.BtnElimProducto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnElimProducto.Location = new System.Drawing.Point(297, 200);
             this.BtnElimProducto.Name = "BtnElimProducto";
             this.BtnElimProducto.Size = new System.Drawing.Size(123, 23);
@@ -263,6 +286,7 @@
             // 
             this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.DodgerBlue;
             this.label4.Location = new System.Drawing.Point(559, 39);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(195, 68);
@@ -276,7 +300,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.PnlBusqueda.BackColor = System.Drawing.Color.White;
             this.PnlBusqueda.Controls.Add(this.DtgvListadoBusqueda);
-            this.PnlBusqueda.Location = new System.Drawing.Point(197, 190);
+            this.PnlBusqueda.Location = new System.Drawing.Point(197, 181);
             this.PnlBusqueda.Name = "PnlBusqueda";
             this.PnlBusqueda.Size = new System.Drawing.Size(655, 171);
             this.PnlBusqueda.TabIndex = 5;
@@ -313,10 +337,24 @@
             this.label6.TabIndex = 13;
             this.label6.Text = "Productos:";
             // 
+            // BtnFacturar
+            // 
+            this.BtnFacturar.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlDark;
+            this.BtnFacturar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue;
+            this.BtnFacturar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnFacturar.Location = new System.Drawing.Point(555, 200);
+            this.BtnFacturar.Name = "BtnFacturar";
+            this.BtnFacturar.Size = new System.Drawing.Size(82, 24);
+            this.BtnFacturar.TabIndex = 14;
+            this.BtnFacturar.Text = "F8 Facturar";
+            this.BtnFacturar.UseVisualStyleBackColor = true;
+            this.BtnFacturar.Click += new System.EventHandler(this.BtnFacturar_Click);
+            // 
             // FrmPuntoVenta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1035, 450);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.LblCantidadProductos);
@@ -331,6 +369,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.DtgvProductos);
             this.Controls.Add(this.LblNombreEmpresa);
+            this.Controls.Add(this.BtnFacturar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.KeyPreview = true;
             this.MinimizeBox = false;
@@ -376,5 +415,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label LblCantidadProductos;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button BtnFacturar;
     }
 }

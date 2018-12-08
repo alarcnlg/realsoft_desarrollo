@@ -264,7 +264,14 @@ namespace SAP.Ventanas
 
             TxtCantidad.Focus();
             EliminarProducto();
+        }
 
+        private void Facturar()
+        {
+            FrmListVentas frmListVentas = new FrmListVentas(true);
+            if (frmListVentas.ShowDialog() != DialogResult.OK) return;
+
+            new FrmFacturacion(frmListVentas.ConseguirVentaSeleccionada().Id).ShowDialog();
         }
 
         private void TxtCodigoBarras_TextChanged(object sender, EventArgs e)
@@ -306,6 +313,10 @@ namespace SAP.Ventanas
             {
                 EditarProducto();
             }
+            else if (e.KeyCode == Keys.F8 && !PnlBusqueda.Visible)
+            {
+                Facturar();
+            }
             else if (e.KeyCode == Keys.Delete && !PnlBusqueda.Visible)
             {
                 EliminarProducto();
@@ -340,6 +351,11 @@ namespace SAP.Ventanas
         private void BtnEditProducto_Click(object sender, EventArgs e)
         {
             EditarProducto();
+        }
+
+        private void BtnFacturar_Click(object sender, EventArgs e)
+        {
+            Facturar();
         }
 
         private void EjecutarTeclasTexbox(object sender, KeyEventArgs e) {

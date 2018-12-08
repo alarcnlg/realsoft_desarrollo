@@ -41,12 +41,12 @@ namespace SAP.Facturacion
             comprobante.FormaPago = "99";
             comprobante.NoCertificado = numeroCertificado;
             comprobante.SubTotal = (decimal)venta.Total;
-            comprobante.Descuento = 1;
+            comprobante.Descuento = 0;
             comprobante.Moneda = "MXN";
             comprobante.Total = (decimal)venta.Total;
             comprobante.TipoDeComprobante = "I";
             comprobante.MetodoPago = "PUE";
-            comprobante.LugarExpedicion = "20131";
+            comprobante.LugarExpedicion = "98300";
 
 
             ComprobanteEmisor emisor = new ComprobanteEmisor();
@@ -62,68 +62,78 @@ namespace SAP.Facturacion
             comprobante.Emisor = emisor;
             comprobante.Receptor = receptor;
 
-            List<ComprobanteConcepto> conceptos = new List<ComprobanteConcepto>();
+            comprobante.Conceptos = new ComprobanteConcepto[venta.Detalles.Count];
             ComprobanteConcepto concepto = null;
 
-            foreach (VentaDetalle detalle in venta.Detalles) {
+            for (int i = 0; i < venta.Detalles.Count; i++) {
                 concepto = new ComprobanteConcepto();
 
-                concepto.NoIdentificacion = "" + detalle.IdProducto;
-                concepto.ClaveProdServ = "92111704";
-                concepto.ClaveUnidad = "C81";
-                concepto.Descripcion = detalle.Producto.Nombre;
-                concepto.ValorUnitario = (decimal)detalle.PrecioUnidad;
-                concepto.Cantidad = 1;
-                concepto.Importe = (decimal)(detalle.PrecioUnidad * detalle.Cantidad);
+                concepto.NoIdentificacion = "" + venta.Detalles[i].IdProducto;
+                concepto.ClaveProdServ = "27112309";
+                concepto.ClaveUnidad = "H87";
+                concepto.Descripcion = venta.Detalles[i].Producto.Nombre;
+                concepto.ValorUnitario = (decimal)venta.Detalles[i].PrecioUnidad;
+                concepto.Cantidad = venta.Detalles[i].Cantidad;
+                concepto.Importe = (decimal)(venta.Detalles[i].PrecioUnidad * venta.Detalles[i].Cantidad);
                 concepto.Descuento = 0;
 
-                conceptos.Add(concepto);
+                comprobante.Conceptos[i] = concepto;
             }
 
             //Se crea el archivo XML
             CrearXML(comprobante);
-
-            string cadenaOriginal = "";
-            string pathxsl = Application.StartupPath + @"Data\cadenaoriginal_3_3.xslt";
-            System.Xml.Xsl.XslCompiledTransform transformador = new System.Xml.Xsl.XslCompiledTransform(true);
-            transformador.Load(pathxsl);
-
-            using (StringWriter sw = new StringWriter())
+            try
             {
-                using (XmlWriter xwo = XmlWriter.Create(sw, transformador.OutputSettings))
+                string cadenaOriginal = "";
+                string pathxsl = Application.StartupPath + @"\Data\cadenaoriginal_3_3.xslt";
+                System.Xml.Xsl.XslCompiledTransform transformador = new System.Xml.Xsl.XslCompiledTransform(true);
+                transformador.Load(pathxsl);
+
+                using (StringWriter sw = new StringWriter())
                 {
-                    transformador.Transform(_rutaXML, xwo);
-                    cadenaOriginal = sw.ToString();
+                    using (XmlWriter xwo = XmlWriter.Create(sw, transformador.OutputSettings))
+                    {
+                        transformador.Transform(_rutaXML, xwo);
+                        cadenaOriginal = sw.ToString();
+                    }
+                }
+                
+                SelloDigital selloDigital = new SelloDigital();
+                comprobante.Certificado = selloDigital.Certificado(rutaCertificado);
+                comprobante.Sello = selloDigital.Sellar(cadenaOriginal, rutaKey, clavePrivada);
+
+                CrearXML(comprobante);
+
+                //Timbrado
+
+                byte[] bytesXML = File.ReadAllBytes(_rutaXML);
+                WsEmisionTimbrado33.wsResponseBO response = new WsEmisionTimbrado33.WsEmisionTimbrado33Client().EmitirTimbrar("AAA010101AAA.Test.User", "Prueba$1", 5906390, bytesXML);
+
+                factura.Id = 0;
+                factura.IdVenta = venta.Id;
+                factura.Fecha = Convert.ToDateTime(comprobante.Fecha);
+
+                if (File.Exists(_rutaXML))
+                {
+                    File.Delete(_rutaXML);
+                }
+
+                if (!response.isError)
+                {
+                    factura.ArchivoXML = response.XML;
+                    factura.ArchivoPDF = response.PDF;
+
+                    return RESULT_CORRECTO;
+                }
+                else
+                {
+                    return RESULT_ERROR_TIMBRADO;
                 }
             }
-
-            SelloDigital selloDigital = new SelloDigital();
-            comprobante.Certificado = selloDigital.Certificado(rutaCertificado);
-            comprobante.Sello = selloDigital.Sellar(cadenaOriginal, rutaKey, clavePrivada);
-
-            CrearXML(comprobante);
-
-            //Timbrado
-
-            byte[] bytesXML = File.ReadAllBytes(_rutaXML);
-            WsEmisionTimbrado33.wsResponseBO response = new WsEmisionTimbrado33.WsEmisionTimbrado33Client().EmitirTimbrar("AAA010101AAA.Test.User", "Prueba$1", 5906390, bytesXML);
-
-            factura.IdVenta = venta.Id;
-            factura.Fecha = Convert.ToDateTime(comprobante.Fecha);
-
-            if (!response.isError)
-            {
-                File.WriteAllBytes(_rutaXML, response.XML);
-                File.WriteAllBytes(Application.StartupPath + @"\documento.pdf", response.PDF);
-
-                factura.ArchivoXML = response.XML;
-                factura.ArchivoXML = response.PDF;
-
-                return RESULT_CORRECTO;
+            catch {
+                return RESULT_ERROR_GENERAL;
             }
-            else {
-                return RESULT_ERROR_TIMBRADO;
-            }
+
         }
 
         private void CrearXML(Comprobante comprobante)

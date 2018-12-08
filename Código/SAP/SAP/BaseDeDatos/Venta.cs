@@ -77,7 +77,7 @@ namespace SAP.BaseDeDatos
 
                 ConsultaBuilder consultaBuilder = new ConsultaBuilder("ventas v");
                 consultaBuilder.AgregarCampo("v.*, d.*, p.ID, p.NOMBRE");
-                consultaBuilder.AgregarJoin("INNER JOIN ventadetalles d ON d.IDVENTA = v.ID");
+                consultaBuilder.AgregarJoin("INNER JOIN ventasdetalles d ON d.IDVENTA = v.ID");
                 consultaBuilder.AgregarJoin("INNER JOIN productos p ON p.ID = d.IDPRODUCTO");
                 consultaBuilder.AgregarCriterio("v.ID=@ID");
 
@@ -104,13 +104,15 @@ namespace SAP.BaseDeDatos
             return true;
         }
 
-        public static bool ConsultarListado(ref List<Venta> ventas, string campoCriterio = "", string datoCriterio = "")
+        public static bool ConsultarListado(ref List<Venta> ventas, string campoCriterio = "", string datoCriterio = "", bool soloActivas = false)
         {
             try
             {
                 MySqlConnection conn = ConexionBaseDeDatos.ConseguirConexion();
                 ConsultaBuilder consultaBuilder = new ConsultaBuilder("ventas");
-
+                if (soloActivas == true) {
+                    consultaBuilder.AgregarCriterio("ESTADO = 'A'");
+                }
                 DynamicParameters parametros = null;
 
                 if (campoCriterio.Length > 0 && datoCriterio.Length > 0)

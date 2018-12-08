@@ -25,7 +25,7 @@ namespace SAP
         private void FrmMDI_Load(object sender, EventArgs e)
         {
             ToolStripMenuItem item = (ToolStripMenuItem)MnuMain.Items.Find("TsmUsuario", false)[0];
-            item.Text = ModuloGeneral.UsuarioActivo.NombreUsuario;
+            item.Text = "Usuario - " + ModuloGeneral.UsuarioActivo.NombreUsuario;
 
             if (ModuloGeneral.UsuarioActivo.Tipo == 'C')
             {
@@ -94,6 +94,11 @@ namespace SAP
             this.CargarFormulario(new FrmRptVentas());
         }
 
+        private void TsmFacturacion_Click(object sender, EventArgs e)
+        {
+            this.CargarFormulario(new FrmListFacturas());
+        }
+
         private void TsmCerrarSesion_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("¿Está seguro de cerrar Sesión?", "Cerrar sesión", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation) == DialogResult.OK)
@@ -111,6 +116,6 @@ namespace SAP
                 Close();
             }
         }
-
+ 
     }
 }

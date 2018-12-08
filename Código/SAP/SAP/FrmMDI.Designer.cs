@@ -31,8 +31,9 @@
             this.MnuMain = new System.Windows.Forms.MenuStrip();
             this.TsmPuntoVenta = new System.Windows.Forms.ToolStripMenuItem();
             this.TsmProductos = new System.Windows.Forms.ToolStripMenuItem();
-            this.TsmCompras = new System.Windows.Forms.ToolStripMenuItem();
             this.TsmVentas = new System.Windows.Forms.ToolStripMenuItem();
+            this.TsmFacturacion = new System.Windows.Forms.ToolStripMenuItem();
+            this.TsmCompras = new System.Windows.Forms.ToolStripMenuItem();
             this.TsmReportes = new System.Windows.Forms.ToolStripMenuItem();
             this.TsmRptProductos = new System.Windows.Forms.ToolStripMenuItem();
             this.TsmRptVentas = new System.Windows.Forms.ToolStripMenuItem();
@@ -49,11 +50,13 @@
             // 
             // MnuMain
             // 
+            this.MnuMain.BackColor = System.Drawing.Color.White;
             this.MnuMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.TsmPuntoVenta,
             this.TsmProductos,
-            this.TsmCompras,
             this.TsmVentas,
+            this.TsmFacturacion,
+            this.TsmCompras,
             this.TsmReportes,
             this.TsmConfiguracion,
             this.TsmUsuario});
@@ -77,19 +80,26 @@
             this.TsmProductos.Text = "Productos";
             this.TsmProductos.Click += new System.EventHandler(this.TsmProductos_Click);
             // 
-            // TsmCompras
-            // 
-            this.TsmCompras.Name = "TsmCompras";
-            this.TsmCompras.Size = new System.Drawing.Size(67, 20);
-            this.TsmCompras.Text = "Compras";
-            this.TsmCompras.Click += new System.EventHandler(this.TsmCompras_Click);
-            // 
             // TsmVentas
             // 
             this.TsmVentas.Name = "TsmVentas";
             this.TsmVentas.Size = new System.Drawing.Size(53, 20);
             this.TsmVentas.Text = "Ventas";
             this.TsmVentas.Click += new System.EventHandler(this.TsmVentas_Click);
+            // 
+            // TsmFacturacion
+            // 
+            this.TsmFacturacion.Name = "TsmFacturacion";
+            this.TsmFacturacion.Size = new System.Drawing.Size(81, 20);
+            this.TsmFacturacion.Text = "Facturación";
+            this.TsmFacturacion.Click += new System.EventHandler(this.TsmFacturacion_Click);
+            // 
+            // TsmCompras
+            // 
+            this.TsmCompras.Name = "TsmCompras";
+            this.TsmCompras.Size = new System.Drawing.Size(67, 20);
+            this.TsmCompras.Text = "Compras";
+            this.TsmCompras.Click += new System.EventHandler(this.TsmCompras_Click);
             // 
             // TsmReportes
             // 
@@ -105,28 +115,28 @@
             // TsmRptProductos
             // 
             this.TsmRptProductos.Name = "TsmRptProductos";
-            this.TsmRptProductos.Size = new System.Drawing.Size(180, 22);
+            this.TsmRptProductos.Size = new System.Drawing.Size(128, 22);
             this.TsmRptProductos.Text = "Productos";
             this.TsmRptProductos.Click += new System.EventHandler(this.TsmRptProductos_Click);
             // 
             // TsmRptVentas
             // 
             this.TsmRptVentas.Name = "TsmRptVentas";
-            this.TsmRptVentas.Size = new System.Drawing.Size(180, 22);
+            this.TsmRptVentas.Size = new System.Drawing.Size(128, 22);
             this.TsmRptVentas.Text = "Ventas";
             this.TsmRptVentas.Click += new System.EventHandler(this.TsmRptVentas_Click);
             // 
             // TsmRptCompras
             // 
             this.TsmRptCompras.Name = "TsmRptCompras";
-            this.TsmRptCompras.Size = new System.Drawing.Size(180, 22);
+            this.TsmRptCompras.Size = new System.Drawing.Size(128, 22);
             this.TsmRptCompras.Text = "Compras";
             this.TsmRptCompras.Click += new System.EventHandler(this.TsmRptCompras_Click);
             // 
             // TsmRptFacturas
             // 
             this.TsmRptFacturas.Name = "TsmRptFacturas";
-            this.TsmRptFacturas.Size = new System.Drawing.Size(180, 22);
+            this.TsmRptFacturas.Size = new System.Drawing.Size(128, 22);
             this.TsmRptFacturas.Text = "Facturas";
             this.TsmRptFacturas.Click += new System.EventHandler(this.TsmRptFacturas_Click);
             // 
@@ -185,6 +195,7 @@
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.MnuMain;
             this.Name = "FrmMDI";
+            this.ShowIcon = false;
             this.Text = "SAP-Sistema de Administración de Papelería";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmMDI_FormClosed);
@@ -214,5 +225,6 @@
         private System.Windows.Forms.ToolStripMenuItem TsmRptVentas;
         private System.Windows.Forms.ToolStripMenuItem TsmRptCompras;
         private System.Windows.Forms.ToolStripMenuItem TsmRptFacturas;
+        private System.Windows.Forms.ToolStripMenuItem TsmFacturacion;
     }
 }

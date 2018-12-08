@@ -95,6 +95,9 @@
             // 
             // BtnAceptar
             // 
+            this.BtnAceptar.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlDark;
+            this.BtnAceptar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue;
+            this.BtnAceptar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnAceptar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnAceptar.Location = new System.Drawing.Point(11, 119);
             this.BtnAceptar.Name = "BtnAceptar";
@@ -106,6 +109,9 @@
             // 
             // BtnCancelar
             // 
+            this.BtnCancelar.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlDark;
+            this.BtnCancelar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue;
+            this.BtnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnCancelar.Location = new System.Drawing.Point(105, 119);
             this.BtnCancelar.Name = "BtnCancelar";
@@ -134,6 +140,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(204, 162);
             this.Controls.Add(this.TxtTotal);
             this.Controls.Add(this.label5);

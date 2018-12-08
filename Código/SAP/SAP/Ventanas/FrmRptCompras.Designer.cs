@@ -45,6 +45,9 @@
             // 
             // BtnGenerar
             // 
+            this.BtnGenerar.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlDark;
+            this.BtnGenerar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue;
+            this.BtnGenerar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnGenerar.Location = new System.Drawing.Point(184, 56);
             this.BtnGenerar.Name = "BtnGenerar";
             this.BtnGenerar.Size = new System.Drawing.Size(75, 23);
@@ -83,6 +86,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(271, 90);
             this.Controls.Add(this.DtpAl);
             this.Controls.Add(this.BtnGenerar);

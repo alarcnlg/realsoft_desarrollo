@@ -19,11 +19,6 @@ namespace SAP.Ventanas
             StartPosition = FormStartPosition.CenterParent;
         }
 
-        private void FrmRptFacturas_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void BtnGenerar_Click(object sender, EventArgs e)
         {
             List<Factura> _datos = new List<Factura>();
@@ -48,24 +43,5 @@ namespace SAP.Ventanas
             new FrmVisorReporte("RptFacturas", dataSources, parametros).ShowDialog();
         }
 
-        private void DtpAl_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void DtpDel_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

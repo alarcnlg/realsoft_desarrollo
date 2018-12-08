@@ -188,6 +188,9 @@
             // 
             // btnGuardar
             // 
+            this.btnGuardar.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlDark;
+            this.btnGuardar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue;
+            this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardar.Location = new System.Drawing.Point(571, 369);
             this.btnGuardar.Name = "btnGuardar";
@@ -198,6 +201,9 @@
             // 
             // BtnBuscar
             // 
+            this.BtnBuscar.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlDark;
+            this.BtnBuscar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue;
+            this.BtnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnBuscar.Location = new System.Drawing.Point(425, 114);
             this.BtnBuscar.Name = "BtnBuscar";
             this.BtnBuscar.Size = new System.Drawing.Size(148, 23);
@@ -208,6 +214,9 @@
             // 
             // BtnAgregar
             // 
+            this.BtnAgregar.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlDark;
+            this.BtnAgregar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue;
+            this.BtnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnAgregar.Location = new System.Drawing.Point(579, 114);
             this.BtnAgregar.Name = "BtnAgregar";
             this.BtnAgregar.Size = new System.Drawing.Size(75, 23);
@@ -220,6 +229,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(709, 421);
             this.Controls.Add(this.BtnAgregar);
             this.Controls.Add(this.BtnBuscar);

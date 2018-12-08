@@ -124,7 +124,9 @@
             // CmbTipoUsuario
             // 
             this.CmbTipoUsuario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.CmbTipoUsuario.BackColor = System.Drawing.Color.White;
             this.CmbTipoUsuario.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbTipoUsuario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CmbTipoUsuario.FormattingEnabled = true;
             this.CmbTipoUsuario.Location = new System.Drawing.Point(161, 179);
             this.CmbTipoUsuario.Name = "CmbTipoUsuario";
@@ -134,6 +136,9 @@
             // BtnCerrar
             // 
             this.BtnCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.BtnCerrar.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlDark;
+            this.BtnCerrar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue;
+            this.BtnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnCerrar.Location = new System.Drawing.Point(142, 222);
             this.BtnCerrar.Name = "BtnCerrar";
             this.BtnCerrar.Size = new System.Drawing.Size(75, 23);
@@ -145,6 +150,9 @@
             // BtnGuardar
             // 
             this.BtnGuardar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.BtnGuardar.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlDark;
+            this.BtnGuardar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue;
+            this.BtnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnGuardar.Location = new System.Drawing.Point(223, 222);
             this.BtnGuardar.Name = "BtnGuardar";
             this.BtnGuardar.Size = new System.Drawing.Size(75, 23);
@@ -157,6 +165,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(307, 259);
             this.Controls.Add(this.BtnGuardar);
             this.Controls.Add(this.BtnCerrar);

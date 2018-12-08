@@ -40,6 +40,9 @@
             // 
             // BtnGenerar
             // 
+            this.BtnGenerar.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlDark;
+            this.BtnGenerar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue;
+            this.BtnGenerar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnGenerar.Location = new System.Drawing.Point(12, 342);
             this.BtnGenerar.Name = "BtnGenerar";
             this.BtnGenerar.Size = new System.Drawing.Size(75, 23);
@@ -51,6 +54,9 @@
             // BtnBuscar
             // 
             this.BtnBuscar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.BtnBuscar.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlDark;
+            this.BtnBuscar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue;
+            this.BtnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnBuscar.Location = new System.Drawing.Point(579, 20);
             this.BtnBuscar.Name = "BtnBuscar";
             this.BtnBuscar.Size = new System.Drawing.Size(75, 23);
@@ -89,6 +95,9 @@
             // 
             // BtnGuardarPDF
             // 
+            this.BtnGuardarPDF.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlDark;
+            this.BtnGuardarPDF.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue;
+            this.BtnGuardarPDF.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnGuardarPDF.Location = new System.Drawing.Point(545, 342);
             this.BtnGuardarPDF.Name = "BtnGuardarPDF";
             this.BtnGuardarPDF.Size = new System.Drawing.Size(109, 23);
@@ -98,6 +107,9 @@
             // 
             // button1
             // 
+            this.button1.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlDark;
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Location = new System.Drawing.Point(430, 342);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(109, 23);
@@ -109,6 +121,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(679, 389);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.BtnGuardarPDF);

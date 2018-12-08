@@ -43,7 +43,6 @@
             this.label1.Size = new System.Drawing.Size(26, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Del:";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
@@ -53,7 +52,6 @@
             this.label2.Size = new System.Drawing.Size(19, 13);
             this.label2.TabIndex = 1;
             this.label2.Text = "Al:";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // DtpDel
             // 
@@ -62,10 +60,12 @@
             this.DtpDel.Name = "DtpDel";
             this.DtpDel.Size = new System.Drawing.Size(81, 20);
             this.DtpDel.TabIndex = 1;
-            this.DtpDel.ValueChanged += new System.EventHandler(this.DtpDel_ValueChanged);
             // 
             // BtnGenerar
             // 
+            this.BtnGenerar.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlDark;
+            this.BtnGenerar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue;
+            this.BtnGenerar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnGenerar.Location = new System.Drawing.Point(178, 48);
             this.BtnGenerar.Name = "BtnGenerar";
             this.BtnGenerar.Size = new System.Drawing.Size(75, 23);
@@ -81,12 +81,12 @@
             this.DtpAl.Name = "DtpAl";
             this.DtpAl.Size = new System.Drawing.Size(81, 20);
             this.DtpAl.TabIndex = 1;
-            this.DtpAl.ValueChanged += new System.EventHandler(this.DtpAl_ValueChanged);
             // 
             // FrmRptFacturas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(265, 85);
             this.Controls.Add(this.DtpAl);
             this.Controls.Add(this.BtnGenerar);
@@ -99,7 +99,6 @@
             this.Name = "FrmRptFacturas";
             this.ShowIcon = false;
             this.Text = "Reporte de Facturas";
-            this.Load += new System.EventHandler(this.FrmRptFacturas_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

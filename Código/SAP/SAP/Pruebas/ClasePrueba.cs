@@ -17,8 +17,12 @@ namespace SAP.Pruebas
     {
         public static bool Probar() {
             try {
-                List<Producto> datos = new List<Producto>();
-                Producto.ConsultarReporte(ref datos);
+                //byte[] datos = null;
+                //Factura.ConsultarXML(3, ref datos);
+                //System.IO.File.WriteAllBytes(@"C:\Users\alarc\Desktop\archivoXml.xml", datos);
+
+                //Factura.ConsultarPDF(3, ref datos);
+                //System.IO.File.WriteAllBytes(@"C:\Users\alarc\Desktop\archivoPdf.pdf", datos);
 
             }
             catch (Exception ex) {

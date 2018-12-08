@@ -32,7 +32,9 @@
             this.TxtNoVenta = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.DtpFecha = new System.Windows.Forms.DateTimePicker();
-            this.BtnGuardar = new System.Windows.Forms.Button();
+            this.BtnGenerar = new System.Windows.Forms.Button();
+            this.BtnGuardarXML = new System.Windows.Forms.Button();
+            this.BtnGuardarPDF = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label2
@@ -70,22 +72,56 @@
             this.DtpFecha.Size = new System.Drawing.Size(95, 20);
             this.DtpFecha.TabIndex = 5;
             // 
-            // BtnGuardar
+            // BtnGenerar
             // 
-            this.BtnGuardar.Location = new System.Drawing.Point(256, 50);
-            this.BtnGuardar.Name = "BtnGuardar";
-            this.BtnGuardar.Size = new System.Drawing.Size(75, 23);
-            this.BtnGuardar.TabIndex = 7;
-            this.BtnGuardar.Text = "Guardar";
-            this.BtnGuardar.UseVisualStyleBackColor = true;
-            this.BtnGuardar.Click += new System.EventHandler(this.BtnGuardar_Click);
+            this.BtnGenerar.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlDark;
+            this.BtnGenerar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue;
+            this.BtnGenerar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnGenerar.Location = new System.Drawing.Point(256, 50);
+            this.BtnGenerar.Name = "BtnGenerar";
+            this.BtnGenerar.Size = new System.Drawing.Size(75, 23);
+            this.BtnGenerar.TabIndex = 7;
+            this.BtnGenerar.Text = "Generar";
+            this.BtnGenerar.UseVisualStyleBackColor = true;
+            this.BtnGenerar.Click += new System.EventHandler(this.BtnGenerar_Click);
+            // 
+            // BtnGuardarXML
+            // 
+            this.BtnGuardarXML.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlDark;
+            this.BtnGuardarXML.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue;
+            this.BtnGuardarXML.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnGuardarXML.Location = new System.Drawing.Point(246, 50);
+            this.BtnGuardarXML.Name = "BtnGuardarXML";
+            this.BtnGuardarXML.Size = new System.Drawing.Size(85, 23);
+            this.BtnGuardarXML.TabIndex = 8;
+            this.BtnGuardarXML.Text = "Guardar XML";
+            this.BtnGuardarXML.UseVisualStyleBackColor = true;
+            this.BtnGuardarXML.Visible = false;
+            this.BtnGuardarXML.Click += new System.EventHandler(this.BtnGuardarXML_Click);
+            // 
+            // BtnGuardarPDF
+            // 
+            this.BtnGuardarPDF.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlDark;
+            this.BtnGuardarPDF.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue;
+            this.BtnGuardarPDF.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnGuardarPDF.Location = new System.Drawing.Point(154, 50);
+            this.BtnGuardarPDF.Name = "BtnGuardarPDF";
+            this.BtnGuardarPDF.Size = new System.Drawing.Size(86, 23);
+            this.BtnGuardarPDF.TabIndex = 9;
+            this.BtnGuardarPDF.Text = "Guardar PDF";
+            this.BtnGuardarPDF.UseVisualStyleBackColor = true;
+            this.BtnGuardarPDF.Visible = false;
+            this.BtnGuardarPDF.Click += new System.EventHandler(this.BtnGuardarPDF_Click);
             // 
             // FrmFacturacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(342, 89);
-            this.Controls.Add(this.BtnGuardar);
+            this.Controls.Add(this.BtnGuardarPDF);
+            this.Controls.Add(this.BtnGuardarXML);
+            this.Controls.Add(this.BtnGenerar);
             this.Controls.Add(this.DtpFecha);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.TxtNoVenta);
@@ -106,6 +142,8 @@
         private System.Windows.Forms.TextBox TxtNoVenta;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DateTimePicker DtpFecha;
-        private System.Windows.Forms.Button BtnGuardar;
+        private System.Windows.Forms.Button BtnGenerar;
+        private System.Windows.Forms.Button BtnGuardarXML;
+        private System.Windows.Forms.Button BtnGuardarPDF;
     }
 }

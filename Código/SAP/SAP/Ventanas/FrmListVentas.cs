@@ -34,7 +34,7 @@ namespace SAP.Ventanas
 
         private void _consultar()
         {
-            if (!Venta.ConsultarListado(ref _modelo, "id", TxtBuscar.Text))
+            if (!Venta.ConsultarListado(ref _modelo, "id", TxtBuscar.Text, _modoSeleccion))
             {
                 MessageBox.Show("Error al consultar ventas", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -46,9 +46,8 @@ namespace SAP.Ventanas
         {
             if (_modoSeleccion)
             {
-                Text = "Seleccione Venta";
+                Text = "Seleccione Venta a Facturar";
                 BtnAceptar.Text = "Aceptar";
-
             }
 
             DtgvListado.ReadOnly = true;

@@ -24,9 +24,22 @@ namespace SAP.Ventanas
            
         }
 
+        private void _inicializarIntefaz() {
+
+        }
+
+        private void _consultar()
+        {
+        }
+
         private void BtnGenerar_Click(object sender, EventArgs e)
         {
-            //if(new FrmFacturacion())
+            FrmListVentas frmListVentas = new FrmListVentas(true);
+            if (frmListVentas.ShowDialog() != DialogResult.OK) return;
+
+            if (new FrmFacturacion(frmListVentas.ConseguirVentaSeleccionada().Id).ShowDialog() == DialogResult.OK) {
+                _consultar();
+            }
         }
     }
 }
