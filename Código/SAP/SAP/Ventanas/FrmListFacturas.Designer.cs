@@ -34,7 +34,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.DtgvListado = new System.Windows.Forms.DataGridView();
             this.BtnGuardarPDF = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.BtnGuardarXML = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DtgvListado)).BeginInit();
             this.SuspendLayout();
             // 
@@ -105,17 +105,18 @@
             this.BtnGuardarPDF.Text = "Guardar PDF";
             this.BtnGuardarPDF.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // BtnGuardarXML
             // 
-            this.button1.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlDark;
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(430, 342);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(109, 23);
-            this.button1.TabIndex = 34;
-            this.button1.Text = "Guardar XML";
-            this.button1.UseVisualStyleBackColor = true;
+            this.BtnGuardarXML.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlDark;
+            this.BtnGuardarXML.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue;
+            this.BtnGuardarXML.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnGuardarXML.Location = new System.Drawing.Point(430, 342);
+            this.BtnGuardarXML.Name = "BtnGuardarXML";
+            this.BtnGuardarXML.Size = new System.Drawing.Size(109, 23);
+            this.BtnGuardarXML.TabIndex = 34;
+            this.BtnGuardarXML.Text = "Guardar XML";
+            this.BtnGuardarXML.UseVisualStyleBackColor = true;
+            this.BtnGuardarXML.Click += new System.EventHandler(this.button1_Click);
             // 
             // FrmListFacturas
             // 
@@ -123,7 +124,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(679, 389);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.BtnGuardarXML);
             this.Controls.Add(this.BtnGuardarPDF);
             this.Controls.Add(this.BtnGenerar);
             this.Controls.Add(this.BtnBuscar);
@@ -149,6 +150,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView DtgvListado;
         private System.Windows.Forms.Button BtnGuardarPDF;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button BtnGuardarXML;
     }
 }
