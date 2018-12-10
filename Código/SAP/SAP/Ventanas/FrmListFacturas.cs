@@ -46,7 +46,7 @@ namespace SAP.Ventanas
 
         private void button1_Click(object sender, EventArgs e)
         {
-         if (DtgvListado.SelectedRows.Count != 1) return;
+            if (DtgvListado.SelectedRows.Count != 1) return;
             SaveFileDialog saveFile = new SaveFileDialog();
             saveFile.AddExtension = true;
             saveFile.FileName = "Factura.xml";
@@ -55,8 +55,9 @@ namespace SAP.Ventanas
             if (saveFile.ShowDialog() == DialogResult.OK)
             {
                 byte[] datos = null;
-                Factura.ConsultarXML(_modelo[DtgvListado.SelectedRows[0].Index].Id,ref datos);
+                Factura.ConsultarXML(_modelo[DtgvListado.SelectedRows[0].Index].Id, ref datos);
                 System.IO.File.WriteAllBytes(saveFile.FileName, datos);
+                MessageBox.Show("Archivo XML guardado Correctamente", "Guardar", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
         }
