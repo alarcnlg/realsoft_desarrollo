@@ -106,6 +106,7 @@
             this.BtnGuardarPDF.TabIndex = 33;
             this.BtnGuardarPDF.Text = "Guardar PDF";
             this.BtnGuardarPDF.UseVisualStyleBackColor = true;
+            this.BtnGuardarPDF.Click += new System.EventHandler(this.BtnGuardarPDF_Click);
             // 
             // BtnGuardarXML
             // 

@@ -110,5 +110,22 @@ namespace SAP.Ventanas
         {
             _consultar();
         }
+
+        private void BtnGuardarPDF_Click(object sender, EventArgs e)
+        {
+            if (DtgvListado.SelectedRows.Count != 1) return;
+            SaveFileDialog saveFile = new SaveFileDialog();
+            saveFile.AddExtension = true;
+            saveFile.FileName = "Factura.pdf";
+            saveFile.Filter = "Archivos PDF | *.pdf";
+
+            if (saveFile.ShowDialog() == DialogResult.OK)
+            {
+                byte[] datos = null;
+                Factura.ConsultarPDF(_modelo[DtgvListado.SelectedRows[0].Index].Id, ref datos);
+                System.IO.File.WriteAllBytes(saveFile.FileName, datos);
+                MessageBox.Show("Archivo PDF guardado Correctamente", "Guardar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
     }
 }
