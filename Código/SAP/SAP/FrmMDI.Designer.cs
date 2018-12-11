@@ -53,9 +53,9 @@
             this.MnuMain.BackColor = System.Drawing.Color.White;
             this.MnuMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.TsmPuntoVenta,
-            this.TsmProductos,
-            this.TsmVentas,
             this.TsmFacturacion,
+            this.TsmVentas,
+            this.TsmProductos,
             this.TsmCompras,
             this.TsmReportes,
             this.TsmConfiguracion,
