@@ -100,6 +100,7 @@ namespace SAP.Ventanas
             }
             else
             {
+                if (DtgvListado.SelectedRows[0].Cells[4].Value.ToString() == "Cancelado") return;
                 DialogResult = DialogResult.OK;
             }
         }

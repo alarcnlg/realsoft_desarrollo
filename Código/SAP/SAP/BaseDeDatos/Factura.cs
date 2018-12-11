@@ -84,6 +84,34 @@ namespace SAP.BaseDeDatos
             return true;
         }
 
+        public static bool ConsultarListado(ref List<Factura> facturas, string campoCriterio = "", string datoCriterio = "", bool soloActivas = false)
+        {
+            try
+            {
+                MySqlConnection conn = ConexionBaseDeDatos.ConseguirConexion();
+                ConsultaBuilder consultaBuilder = new ConsultaBuilder("facturas");
+                if (soloActivas == true)
+                {
+                    consultaBuilder.AgregarCriterio("ESTADO = 'A'");
+                }
+                DynamicParameters parametros = null;
+
+                if (campoCriterio.Length > 0 && datoCriterio.Length > 0)
+                {
+                    parametros = new DynamicParameters();
+                    parametros.Add("@DATO", $"%{datoCriterio}%", System.Data.DbType.String);
+                    consultaBuilder.AgregarCriterio($"{campoCriterio} LIKE @DATO");
+                }
+
+                facturas = conn.Query<Factura>(consultaBuilder.ToString(), parametros).ToList();
+            }
+            catch
+            {
+                return false;
+            }
+            return true;
+        }
+
         public static bool ConsultarSiguienteID(ref long id)
         {
             try
