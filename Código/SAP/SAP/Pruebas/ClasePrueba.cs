@@ -17,29 +17,12 @@ namespace SAP.Pruebas
     {
         public static bool Probar() {
             try {
+                //byte[] datos = null;
+                //Factura.ConsultarXML(3, ref datos);
+                //System.IO.File.WriteAllBytes(@"C:\Users\alarc\Desktop\archivoXml.xml", datos);
 
-                DataGridView dtgv = new DataGridView();
-
-                //Constructor de la ventana o evento Load
-                BaseDeDatos.Compra compra = new BaseDeDatos.Compra();
-                compra.Detalles = new List<CompraDetalle>();
-                /////////////////////////////////////////
-
-                // Conseguir datos dtgv = Nombre del datagridview
-                CompraDetalle compraDetalle = null;
-
-                float total = 0;
-                for (int i = 0; i < dtgv.RowCount; i++)
-                {
-                    compraDetalle = new CompraDetalle();
-                    compraDetalle.IdProducto = Convert.ToInt32(dtgv.Rows[i].Cells["IDPRODUCTO"].Value);
-                    compraDetalle.Cantidad = Convert.ToInt32(dtgv.Rows[i].Cells["CANTIDAD"].Value);
-                    compraDetalle.CostoUnidad = float.Parse(dtgv.Rows[i].Cells["COSTO"].Value.ToString());
-                    total += compraDetalle.Cantidad * compraDetalle.CostoUnidad;
-                    compra.Detalles.Add(compraDetalle);
-                }
-                compra.Total = total;
-                /////////////////////////////////////////
+                //Factura.ConsultarPDF(3, ref datos);
+                //System.IO.File.WriteAllBytes(@"C:\Users\alarc\Desktop\archivoPdf.pdf", datos);
 
             }
             catch (Exception ex) {

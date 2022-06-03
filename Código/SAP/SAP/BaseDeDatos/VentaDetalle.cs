@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace SAP.BaseDeDatos
 {
     [Table("ventasdetalles")]
-    class VentaDetalle
+    public class VentaDetalle
     {
         public long Id { get; set; }
         public long IdVenta { get; set; }

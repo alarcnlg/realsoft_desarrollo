@@ -15,26 +15,26 @@ namespace SAP.Ventanas
     public partial class FrmListVentas : Form
     {
         private List<Venta> _modelo;
-        public FrmListVentas()
+        private bool _modoSeleccion;
+
+        public FrmListVentas(bool modoSeleccion = false)
         {
             InitializeComponent();
             StartPosition = FormStartPosition.CenterParent;
 
             _modelo = new List<Venta>();
-
+            _modoSeleccion = modoSeleccion;
         }
 
         private void FrmListVentas_Load(object sender, EventArgs e)
         {
             _inicializarInterfaz();
-
             _consultar();
-
         }
 
         private void _consultar()
         {
-            if (!Venta.ConsultarListado(ref _modelo, "id", TxtBuscar.Text))
+            if (!Venta.ConsultarListado(ref _modelo, "id", TxtBuscar.Text, _modoSeleccion))
             {
                 MessageBox.Show("Error al consultar ventas", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -44,6 +44,12 @@ namespace SAP.Ventanas
 
         private void _inicializarInterfaz()
         {
+            if (_modoSeleccion)
+            {
+                Text = "Seleccione Venta a Facturar";
+                BtnAceptar.Text = "Aceptar";
+            }
+
             DtgvListado.ReadOnly = true;
             DtgvListado.RowHeadersVisible = false;
             DtgvListado.MultiSelect = false;
@@ -75,23 +81,28 @@ namespace SAP.Ventanas
             }
         }
 
-        private void BtnCancelar_Click(object sender, EventArgs e)
+        private void BtnAceptar_Click(object sender, EventArgs e)
         {
             if (DtgvListado.SelectedRows.Count != 1) return;
-            if (DtgvListado.SelectedRows[0].Cells[4].Value.ToString() == "Cancelado") return;
-            if (MessageBox.Show("¿Está seguro de Cancelar esta Venta?", "Cancelar", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation) == DialogResult.OK)
+            if (!_modoSeleccion)
             {
-                if (!Venta.Cancelar(_modelo[DtgvListado.SelectedRows[0].Index].Id))
+                if (DtgvListado.SelectedRows[0].Cells[4].Value.ToString() == "Cancelado") return;
+                if (MessageBox.Show("¿Está seguro de Cancelar esta Venta?", "Cancelar", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation) == DialogResult.OK)
                 {
-                    MessageBox.Show("Error al Cancelar Venta", "Cancelar", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
+                    if (!Venta.Cancelar(_modelo[DtgvListado.SelectedRows[0].Index].Id))
+                    {
+                        MessageBox.Show("Error al Cancelar Venta", "Cancelar", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                    MessageBox.Show("Venta Cancelada correctamente", "cancelar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    _consultar();
                 }
-                MessageBox.Show("Venta Cancelada correctamente", "cancelar", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                _consultar();
             }
-
-
-
+            else
+            {
+                if (DtgvListado.SelectedRows[0].Cells[4].Value.ToString() == "Cancelado") return;
+                DialogResult = DialogResult.OK;
+            }
         }
         private void BtnBuscar_Click(object sender, EventArgs e)
         {
@@ -104,6 +115,11 @@ namespace SAP.Ventanas
             {
                 _consultar();
             }
+        }
+
+        public Venta ConseguirVentaSeleccionada()
+        {
+            return _modelo[DtgvListado.SelectedRows[0].Index];
         }
     }
 }

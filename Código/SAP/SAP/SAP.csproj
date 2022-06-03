@@ -32,6 +32,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>logoSAP.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Dapper, Version=1.50.5.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Dapper.1.50.5\lib\net451\Dapper.dll</HintPath>
@@ -39,10 +42,31 @@
     <Reference Include="Dapper.Contrib, Version=1.50.5.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Dapper.Contrib.1.50.5\lib\net451\Dapper.Contrib.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.900.148\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.900.148\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.900.148\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.900.148\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.900.148\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
     <Reference Include="MySql.Data, Version=8.0.13.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -58,12 +82,60 @@
     <Compile Include="BaseDeDatos\CompraDetalle.cs" />
     <Compile Include="BaseDeDatos\Core\ConexionBaseDeDatos.cs" />
     <Compile Include="BaseDeDatos\Core\ConsultaBuilder.cs" />
+    <Compile Include="BaseDeDatos\Factura.cs" />
     <Compile Include="BaseDeDatos\Producto.cs" />
     <Compile Include="BaseDeDatos\Usuario.cs" />
     <Compile Include="BaseDeDatos\Venta.cs" />
     <Compile Include="BaseDeDatos\VentaDetalle.cs" />
     <Compile Include="Clases\ArchivoConfiguracion.cs" />
     <Compile Include="Clases\MetodosExtension.cs" />
+    <Compile Include="Connected Services\WsEmisionTimbrado33\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Facturacion\DatosCFDI.cs" />
+    <Compile Include="Facturacion\CFDI.cs" />
+    <Compile Include="Facturacion\opensslkey.cs" />
+    <Compile Include="Facturacion\SelloDigital.cs" />
+    <Compile Include="Facturacion\StringWriterWithEncoding.cs" />
+    <Compile Include="SqlServerTypes\Loader.cs" />
+    <Compile Include="Ventanas\FrmFacturacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ventanas\FrmFacturacion.Designer.cs">
+      <DependentUpon>FrmFacturacion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ventanas\FrmListFacturas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ventanas\FrmListFacturas.Designer.cs">
+      <DependentUpon>FrmListFacturas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ventanas\FrmRptCompras.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ventanas\FrmRptCompras.Designer.cs">
+      <DependentUpon>FrmRptCompras.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ventanas\FrmRptFacturas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ventanas\FrmRptFacturas.Designer.cs">
+      <DependentUpon>FrmRptFacturas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ventanas\FrmRptProductos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ventanas\FrmRptProductos.Designer.cs">
+      <DependentUpon>FrmRptProductos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ventanas\FrmRptVentas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ventanas\FrmRptVentas.Designer.cs">
+      <DependentUpon>FrmRptVentas.cs</DependentUpon>
+    </Compile>
     <Compile Include="Ventanas\FrmTotal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -152,6 +224,10 @@
     <Compile Include="Ventanas\FrmVisorReporte.Designer.cs">
       <DependentUpon>FrmVisorReporte.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Reportes\RptVentas.rdlc" />
+    <EmbeddedResource Include="Reportes\RptCompras.rdlc" />
+    <EmbeddedResource Include="Reportes\RptFacturas.rdlc" />
+    <EmbeddedResource Include="Reportes\RptProductos.rdlc" />
     <EmbeddedResource Include="Ventanas\FrmCompraProductos.resx">
       <DependentUpon>FrmCompraProductos.cs</DependentUpon>
     </EmbeddedResource>
@@ -169,6 +245,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Pruebas\FrmPruebaSeleccionProducto.resx">
       <DependentUpon>FrmPruebaSeleccionProducto.cs</DependentUpon>
@@ -176,8 +253,14 @@
     <EmbeddedResource Include="Ventanas\FrmConfiguracionBaseDeDatos.resx">
       <DependentUpon>FrmConfiguracionBaseDeDatos.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Ventanas\FrmFacturacion.resx">
+      <DependentUpon>FrmFacturacion.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Ventanas\FrmListCompras.resx">
       <DependentUpon>FrmListCompras.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ventanas\FrmListFacturas.resx">
+      <DependentUpon>FrmListFacturas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ventanas\FrmListProductos.resx">
       <DependentUpon>FrmListProductos.cs</DependentUpon>
@@ -194,6 +277,18 @@
     <EmbeddedResource Include="Ventanas\FrmPuntoVenta.resx">
       <DependentUpon>FrmPuntoVenta.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Ventanas\FrmRptCompras.resx">
+      <DependentUpon>FrmRptCompras.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ventanas\FrmRptFacturas.resx">
+      <DependentUpon>FrmRptFacturas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ventanas\FrmRptProductos.resx">
+      <DependentUpon>FrmRptProductos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ventanas\FrmRptVentas.resx">
+      <DependentUpon>FrmRptVentas.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Ventanas\FrmTotal.resx">
       <DependentUpon>FrmTotal.cs</DependentUpon>
     </EmbeddedResource>
@@ -203,7 +298,27 @@
     <EmbeddedResource Include="Ventanas\FrmVisorReporte.resx">
       <DependentUpon>FrmVisorReporte.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="Connected Services\WsEmisionTimbrado33\SAP.WsEmisionTimbrado33.CodigoConfirmacionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WsEmisionTimbrado33\SAP.WsEmisionTimbrado33.EmitirTimbrarResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WsEmisionTimbrado33\SAP.WsEmisionTimbrado33.wsResponseBO.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WsEmisionTimbrado33\WsEmisionTimbrado33.wsdl" />
+    <None Include="Connected Services\WsEmisionTimbrado33\WsEmisionTimbrado33.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\SAP.BaseDeDatos.Compra.datasource" />
+    <None Include="Properties\DataSources\SAP.BaseDeDatos.CompraDetalle.datasource" />
+    <None Include="Properties\DataSources\SAP.BaseDeDatos.Factura.datasource" />
+    <None Include="Properties\DataSources\SAP.BaseDeDatos.Producto.datasource" />
+    <None Include="Properties\DataSources\SAP.BaseDeDatos.Usuario.datasource" />
+    <None Include="Properties\DataSources\SAP.BaseDeDatos.Venta.datasource" />
+    <None Include="Properties\DataSources\SAP.BaseDeDatos.VentaDetalle.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -221,8 +336,35 @@
     <Folder Include="Data\" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Connected Services\WsEmisionTimbrado33\configuration91.svcinfo" />
+    <None Include="Connected Services\WsEmisionTimbrado33\configuration.svcinfo" />
+    <None Include="Connected Services\WsEmisionTimbrado33\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <Content Include="Desarrollo\DefinicionBaseDeDatos.sql" />
     <Content Include="Desarrollo\Pendientes.txt" />
+    <None Include="Resources\logoSAP.png" />
+    <Content Include="logoSAP.ico" />
+    <Content Include="SqlServerTypes\readme.htm" />
+    <Content Include="SqlServerTypes\x64\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\WsEmisionTimbrado33\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -133,6 +133,9 @@
             // BtnGuardar
             // 
             this.BtnGuardar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.BtnGuardar.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlDark;
+            this.BtnGuardar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue;
+            this.BtnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnGuardar.Location = new System.Drawing.Point(193, 211);
             this.BtnGuardar.Name = "BtnGuardar";
             this.BtnGuardar.Size = new System.Drawing.Size(75, 23);
@@ -144,6 +147,9 @@
             // BtnCancelar
             // 
             this.BtnCancelar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.BtnCancelar.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlDark;
+            this.BtnCancelar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue;
+            this.BtnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnCancelar.Location = new System.Drawing.Point(112, 211);
             this.BtnCancelar.Name = "BtnCancelar";
             this.BtnCancelar.Size = new System.Drawing.Size(75, 23);
@@ -155,6 +161,9 @@
             // BtnProbar
             // 
             this.BtnProbar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.BtnProbar.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlDark;
+            this.BtnProbar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue;
+            this.BtnProbar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnProbar.Location = new System.Drawing.Point(12, 211);
             this.BtnProbar.Name = "BtnProbar";
             this.BtnProbar.Size = new System.Drawing.Size(75, 23);
@@ -167,6 +176,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(281, 246);
             this.Controls.Add(this.BtnProbar);
             this.Controls.Add(this.BtnCancelar);

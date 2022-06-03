@@ -128,5 +128,21 @@ namespace SAP.BaseDeDatos
             return true;
         }
 
+        public static bool ConsultarReporte(ref List<Compra> compras, DateTime fechaDel, DateTime fechaAl)
+        {
+            try
+            {
+                MySqlConnection conn = ConexionBaseDeDatos.ConseguirConexion();
+                ConsultaBuilder consultaBuilder = new ConsultaBuilder("compras");
+                consultaBuilder.AgregarCriterio($"FECHA BETWEEN '{fechaDel.ToString("yyyy-MM-dd")}' AND '{fechaAl.ToString("yyyy-MM-dd")}'");
+
+                compras = conn.Query<Compra>(consultaBuilder.ToString()).ToList();
+            }
+            catch
+            {
+                return false;
+            }
+            return true;
+        }
     }
 }

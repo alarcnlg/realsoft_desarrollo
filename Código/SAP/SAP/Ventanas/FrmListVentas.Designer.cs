@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.BtnCancelar = new System.Windows.Forms.Button();
+            this.BtnAceptar = new System.Windows.Forms.Button();
             this.BtnBuscar = new System.Windows.Forms.Button();
             this.TxtBuscar = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -36,19 +36,25 @@
             ((System.ComponentModel.ISupportInitialize)(this.DtgvListado)).BeginInit();
             this.SuspendLayout();
             // 
-            // BtnCancelar
+            // BtnAceptar
             // 
-            this.BtnCancelar.Location = new System.Drawing.Point(579, 342);
-            this.BtnCancelar.Name = "BtnCancelar";
-            this.BtnCancelar.Size = new System.Drawing.Size(75, 23);
-            this.BtnCancelar.TabIndex = 27;
-            this.BtnCancelar.Text = "Cancelar";
-            this.BtnCancelar.UseVisualStyleBackColor = true;
-            this.BtnCancelar.Click += new System.EventHandler(this.BtnCancelar_Click);
+            this.BtnAceptar.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlDark;
+            this.BtnAceptar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue;
+            this.BtnAceptar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnAceptar.Location = new System.Drawing.Point(579, 342);
+            this.BtnAceptar.Name = "BtnAceptar";
+            this.BtnAceptar.Size = new System.Drawing.Size(75, 23);
+            this.BtnAceptar.TabIndex = 27;
+            this.BtnAceptar.Text = "Cancelar";
+            this.BtnAceptar.UseVisualStyleBackColor = true;
+            this.BtnAceptar.Click += new System.EventHandler(this.BtnAceptar_Click);
             // 
             // BtnBuscar
             // 
             this.BtnBuscar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.BtnBuscar.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlDark;
+            this.BtnBuscar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue;
+            this.BtnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnBuscar.Location = new System.Drawing.Point(579, 20);
             this.BtnBuscar.Name = "BtnBuscar";
             this.BtnBuscar.Size = new System.Drawing.Size(75, 23);
@@ -91,15 +97,17 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(679, 389);
-            this.Controls.Add(this.BtnCancelar);
+            this.Controls.Add(this.BtnAceptar);
             this.Controls.Add(this.BtnBuscar);
             this.Controls.Add(this.TxtBuscar);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.DtgvListado);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MinimizeBox = false;
             this.Name = "FrmListVentas";
-            this.Text = "FrmListVentas";
+            this.Text = "Listado de Ventas";
             this.Load += new System.EventHandler(this.FrmListVentas_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DtgvListado)).EndInit();
             this.ResumeLayout(false);
@@ -109,7 +117,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Button BtnCancelar;
+        private System.Windows.Forms.Button BtnAceptar;
         private System.Windows.Forms.Button BtnBuscar;
         private System.Windows.Forms.TextBox TxtBuscar;
         private System.Windows.Forms.Label label1;

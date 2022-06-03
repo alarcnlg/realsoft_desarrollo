@@ -42,6 +42,9 @@
             // BtnBuscar
             // 
             this.BtnBuscar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.BtnBuscar.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlDark;
+            this.BtnBuscar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue;
+            this.BtnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnBuscar.Location = new System.Drawing.Point(579, 22);
             this.BtnBuscar.Name = "BtnBuscar";
             this.BtnBuscar.Size = new System.Drawing.Size(75, 23);
@@ -63,6 +66,7 @@
             // CmbCampos
             // 
             this.CmbCampos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbCampos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CmbCampos.FormattingEnabled = true;
             this.CmbCampos.Location = new System.Drawing.Point(79, 24);
             this.CmbCampos.Name = "CmbCampos";
@@ -81,6 +85,9 @@
             // BtnNuevo
             // 
             this.BtnNuevo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.BtnNuevo.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlDark;
+            this.BtnNuevo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue;
+            this.BtnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnNuevo.Location = new System.Drawing.Point(12, 339);
             this.BtnNuevo.Name = "BtnNuevo";
             this.BtnNuevo.Size = new System.Drawing.Size(75, 23);
@@ -92,6 +99,9 @@
             // BtnEliminar
             // 
             this.BtnEliminar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.BtnEliminar.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlDark;
+            this.BtnEliminar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue;
+            this.BtnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnEliminar.Location = new System.Drawing.Point(498, 339);
             this.BtnEliminar.Name = "BtnEliminar";
             this.BtnEliminar.Size = new System.Drawing.Size(75, 23);
@@ -103,6 +113,9 @@
             // BtnAceptar
             // 
             this.BtnAceptar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.BtnAceptar.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlDark;
+            this.BtnAceptar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue;
+            this.BtnAceptar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnAceptar.Location = new System.Drawing.Point(579, 339);
             this.BtnAceptar.Name = "BtnAceptar";
             this.BtnAceptar.Size = new System.Drawing.Size(75, 23);
@@ -126,6 +139,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(666, 376);
             this.Controls.Add(this.BtnBuscar);
             this.Controls.Add(this.TxtBuscar);

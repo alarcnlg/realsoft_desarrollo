@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 namespace SAP.BaseDeDatos
 {
     [Table("ventas")]
-    class Venta
+    public class Venta
     {
         public long Id { get; set; }
         public DateTime Fecha { get; set; }
@@ -71,25 +71,26 @@ namespace SAP.BaseDeDatos
 
         public static bool Consultar(ref Venta venta)
         {
-
             try
             {
                 MySqlConnection conn = ConexionBaseDeDatos.ConseguirConexion();
 
                 ConsultaBuilder consultaBuilder = new ConsultaBuilder("ventas v");
-                consultaBuilder.AgregarCampo("v.*, d.*");
-                consultaBuilder.AgregarJoin("INNER JOIN ventadetalles d ON d.IDVENTA = v.ID");
+                consultaBuilder.AgregarCampo("v.*, d.*, p.ID, p.NOMBRE");
+                consultaBuilder.AgregarJoin("INNER JOIN ventasdetalles d ON d.IDVENTA = v.ID");
+                consultaBuilder.AgregarJoin("INNER JOIN productos p ON p.ID = d.IDPRODUCTO");
                 consultaBuilder.AgregarCriterio("v.ID=@ID");
 
                 Venta ventaConsulta = null;
 
-                venta = conn.Query<Venta, VentaDetalle, Venta>(consultaBuilder.ToString(),
-                    (ventasel, detalle) => {
+                venta = conn.Query<Venta, VentaDetalle, Producto, Venta>(consultaBuilder.ToString(),
+                    (ventasel, detalle, Producto) => {
                         if (ventaConsulta == null)
                         {
                             ventaConsulta = ventasel;
                             ventaConsulta.Detalles = new List<VentaDetalle>();
                         }
+                        detalle.Producto = Producto;
                         ventaConsulta.Detalles.Add(detalle);
                         return ventaConsulta;
                     }, new { ID = venta.Id }).FirstOrDefault();
@@ -103,13 +104,15 @@ namespace SAP.BaseDeDatos
             return true;
         }
 
-        public static bool ConsultarListado(ref List<Venta> ventas, string campoCriterio = "", string datoCriterio = "")
+        public static bool ConsultarListado(ref List<Venta> ventas, string campoCriterio = "", string datoCriterio = "", bool soloActivas = false)
         {
             try
             {
                 MySqlConnection conn = ConexionBaseDeDatos.ConseguirConexion();
                 ConsultaBuilder consultaBuilder = new ConsultaBuilder("ventas");
-
+                if (soloActivas == true) {
+                    consultaBuilder.AgregarCriterio("ESTADO = 'A'");
+                }
                 DynamicParameters parametros = null;
 
                 if (campoCriterio.Length > 0 && datoCriterio.Length > 0)
@@ -120,6 +123,23 @@ namespace SAP.BaseDeDatos
                 }
 
                 ventas = conn.Query<Venta>(consultaBuilder.ToString(), parametros).ToList();
+            }
+            catch
+            {
+                return false;
+            }
+            return true;
+        }
+
+        public static bool ConsultarReporte(ref List<Venta> ventas, DateTime fechaDel, DateTime fechaAl)
+        {
+            try
+            {
+                MySqlConnection conn = ConexionBaseDeDatos.ConseguirConexion();
+                ConsultaBuilder consultaBuilder = new ConsultaBuilder("ventas");
+                consultaBuilder.AgregarCriterio($"FECHA BETWEEN '{fechaDel.ToString("yyyy-MM-dd")}' AND '{fechaAl.ToString("yyyy-MM-dd")}'");
+
+                ventas = conn.Query<Venta>(consultaBuilder.ToString(), new { FECHADEL = fechaDel.ToShortDateString(), FECHAAL = fechaAl.ToShortDateString() }).ToList();
             }
             catch
             {

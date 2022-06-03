@@ -17,7 +17,6 @@ namespace SAP.Ventanas
         private List<Producto> _modelo;
         private bool _modoSeleccion;
 
-
         public FrmListProductos(bool modoSeleccion = false)
         {
             InitializeComponent();
