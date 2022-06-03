@@ -74,6 +74,16 @@ CREATE TABLE ventasdetalles(
 );
 
 
+DROP TABLE IF EXISTS facturas;
+CREATE TABLE facturas(
+	ID INT PRIMARY KEY AUTO_INCREMENT COMMENT 'ID Único',
+    IDVENTA INT COMMENT 'Id de venta',
+	FECHA DATE COMMENT 'Fecha de facturación',
+    ARCHIVOXML BLOB COMMENT 'Archivo XML', 
+	ARCHIVOPDF BLOB COMMENT 'Archivo PDF', 
+	ESTADO ENUM('A','C') COMMENT 'A=Activa, C=Cancelada'
+);
+
 ################################
 #	Registros base 			   #		 	
 ################################
